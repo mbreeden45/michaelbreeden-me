@@ -35,6 +35,7 @@ export const projects: Project[] = [
     description:
       'Self-built study app with 364 exam-style questions and progress tracking, built to master Agentforce platform concepts hands-on rather than just reading about them.',
     stack: ['React', 'TypeScript'],
+    demoUrl: 'https://agentforce.michaelbreeden.me/',
   },
   {
     tag: 'Personal Project',
