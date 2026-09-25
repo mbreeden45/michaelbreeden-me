@@ -41,6 +41,14 @@ export default function Hero() {
             >
               Get in touch
             </a>
+            <a
+              href="/Michael-Breeden-Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg px-5 py-2.5 text-sm font-semibold text-slate-500 underline-offset-4 transition hover:underline dark:text-slate-400"
+            >
+              Download résumé
+            </a>
           </div>
         </motion.div>
 

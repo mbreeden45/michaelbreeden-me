@@ -2,8 +2,9 @@ import ThemeToggle from './ThemeToggle'
 
 const links = [
   { href: '#work', label: 'Work' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#beyond', label: 'Beyond Work' },
   { href: '#credentials', label: 'Credentials' },
-  { href: '#skills', label: 'Skills' },
   { href: '#contact', label: 'Contact' },
 ]
 
