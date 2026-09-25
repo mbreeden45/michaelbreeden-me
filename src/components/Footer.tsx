@@ -26,6 +26,14 @@ export default function Footer() {
             </a>
           </span>
         </div>
+        <p className="mt-4 text-xs text-slate-400 dark:text-slate-500">
+          Last updated{' '}
+          {new Date(__LAST_UPDATED__).toLocaleDateString(undefined, {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          })}
+        </p>
       </div>
     </footer>
   )

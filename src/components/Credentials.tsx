@@ -1,4 +1,4 @@
-import { badges, stats } from '../data/projects'
+import { badges, stats, statsNote } from '../data/projects'
 import StatTile from './StatTile'
 
 export default function Credentials() {
@@ -9,11 +9,12 @@ export default function Credentials() {
         <p className="mb-8 mt-1.5 max-w-xl text-slate-500 dark:text-slate-400">
           Trailhead and certification history on the Salesforce platform.
         </p>
-        <div className="grid grid-cols-2 gap-3.5 sm:grid-cols-4">
+        <div className="grid grid-cols-2 gap-3.5 sm:grid-cols-3 md:grid-cols-5">
           {stats.map((s, i) => (
             <StatTile key={s.label} stat={s} index={i} />
           ))}
         </div>
+        <p className="mt-3 text-xs text-slate-400 dark:text-slate-500">{statsNote}</p>
         <div className="mt-6 flex flex-wrap gap-2">
           {badges.map((b) => (
             <span

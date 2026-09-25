@@ -51,11 +51,15 @@ export interface Stat {
 }
 
 export const stats: Stat[] = [
-  { num: '524', label: 'Trailhead badges' },
-  { num: '200,650', label: 'Trailhead points' },
+  { num: '525', label: 'Trailhead badges' },
+  { num: '201,050', label: 'Trailhead points' },
+  { num: '45', label: 'Trails completed' },
   { num: 'Four-Star', label: 'Ranger rank' },
   { num: 'Innovator', label: 'Agentblazer status, 2026' },
 ]
+
+export const statsNote =
+  "Numbers reflect my full Trailhead history and are updated by hand. My public Trailblazer profile shows a lower count — some Salesforce-internal badges aren't visible outside the company."
 
 export const badges: string[] = [
   'Salesforce Certified Administrator',
