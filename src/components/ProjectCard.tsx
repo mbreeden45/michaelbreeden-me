@@ -1,56 +1,75 @@
 import { motion } from 'framer-motion'
 import type { Project } from '../data/projects'
 
+const ACCENTS = ['var(--color-hot)', 'var(--color-teal)', 'var(--color-blaze)']
+
 export default function ProjectCard({ project, index }: { project: Project; index: number }) {
+  const accent = ACCENTS[index % ACCENTS.length]
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 14 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 14, rotate: index % 2 === 0 ? -1 : 1 }}
+      whileInView={{ opacity: 1, y: 0, rotate: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.45, delay: (index % 3) * 0.06 }}
-      className="group rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-slate-800 dark:bg-slate-900"
+      whileHover={{ rotate: index % 2 === 0 ? -0.75 : 0.75, y: -3 }}
+      className="relative border-2 border-[var(--color-ink)] bg-[var(--color-paper)] p-5 shadow-[4px_4px_0_var(--color-ink)] dark:border-[#3a352a] dark:bg-[#1f1b14] dark:shadow-[4px_4px_0_#000]"
     >
-      <span className="mb-2.5 inline-block rounded-md bg-[#2f5c8a]/10 px-2 py-1 text-[11px] font-bold uppercase tracking-wide text-[#2f5c8a] dark:bg-[#6f9fd6]/15 dark:text-[#6f9fd6]">
+      {/* perforation notches */}
+      <span className="ticket-notch -left-2 top-1/2 -translate-y-1/2" aria-hidden />
+      <span className="ticket-notch -right-2 top-1/2 -translate-y-1/2" aria-hidden />
+
+      <span
+        className="mb-2.5 inline-block -rotate-1 px-2 py-1 font-display text-[11px] font-bold uppercase tracking-wide text-[var(--color-paper)]"
+        style={{ backgroundColor: accent }}
+      >
         {project.tag}
       </span>
-      <h3 className="mb-2 text-base font-semibold">{project.title}</h3>
-      <p className="mb-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+      <h3 className="mb-2 font-display text-base">{project.title}</h3>
+      <p className="mb-3 text-sm leading-relaxed text-[var(--color-ink-soft)] dark:text-[#c9c2b2]">
         {project.description}
       </p>
-      <div className="mb-3 flex flex-wrap gap-1.5">
+      <div className="mb-4 flex flex-wrap gap-1.5">
         {project.stack.map((s) => (
           <span
             key={s}
-            className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-0.5 text-xs text-slate-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
+            className="border border-[var(--color-ink)] px-2 py-0.5 text-xs uppercase tracking-wide dark:border-[#45402f] dark:text-[#c9c2b2]"
           >
             {s}
           </span>
         ))}
       </div>
-      <div className="flex gap-2 pt-1 text-sm font-medium">
-        {project.demoUrl ? (
-          <a
-            href={project.demoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#2f5c8a] hover:underline dark:text-[#6f9fd6]"
-          >
-            Live demo →
-          </a>
-        ) : null}
-        {project.repoUrl ? (
-          <a
-            href={project.repoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#2f5c8a] hover:underline dark:text-[#6f9fd6]"
-          >
-            Code →
-          </a>
-        ) : null}
-        {!project.demoUrl && !project.repoUrl ? (
-          <span className="text-slate-400 dark:text-slate-500">Details coming soon</span>
-        ) : null}
+      <div className="flex items-center justify-between border-t border-dashed border-[var(--color-ink)]/40 pt-3 text-sm font-bold dark:border-[#45402f]">
+        <div className="flex gap-3">
+          {project.demoUrl ? (
+            <a
+              href={project.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-2 hover:text-[var(--color-hot)]"
+            >
+              LIVE DEMO →
+            </a>
+          ) : null}
+          {project.repoUrl ? (
+            <a
+              href={project.repoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-2 hover:text-[var(--color-hot)]"
+            >
+              CODE →
+            </a>
+          ) : null}
+          {!project.demoUrl && !project.repoUrl ? (
+            <span className="font-mono text-xs font-normal uppercase text-[var(--color-ink-soft)] dark:text-[#8a8270]">
+              Details coming soon
+            </span>
+          ) : null}
+        </div>
+        <span className="font-mono text-xs text-[var(--color-ink-soft)] dark:text-[#8a8270]">
+          #{String(index + 1).padStart(2, '0')}
+        </span>
       </div>
     </motion.div>
   )

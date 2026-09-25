@@ -1,38 +1,42 @@
 import { motion } from 'framer-motion'
+import SectionHeading from './SectionHeading'
+import TornDivider from './TornDivider'
 
 export default function BeyondWork() {
   return (
-    <section id="beyond" className="border-t border-slate-200 py-16 dark:border-slate-800">
-      <div className="mx-auto max-w-4xl px-6">
-        <h2 className="text-2xl font-bold tracking-tight">Beyond the day job</h2>
-        <p className="mb-8 mt-1.5 max-w-xl text-slate-500 dark:text-slate-400">
-          The work that doesn't fit on a resume but says a lot about how I show up.
-        </p>
+    <section id="beyond" className="pt-4">
+      <TornDivider />
+      <div className="mx-auto max-w-4xl px-6 pt-8 pb-16">
+        <SectionHeading
+          index="03"
+          title="Beyond the day job"
+          subtitle="The work that doesn't fit on a resume but says a lot about how I show up."
+        />
 
         <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 14, rotate: -1 }}
+          whileInView={{ opacity: 1, y: 0, rotate: -1 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.45 }}
-          className="rounded-xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-6 dark:border-slate-800 dark:from-slate-900 dark:to-slate-950"
+          className="relative border-2 border-[var(--color-ink)] bg-[var(--color-paper)] p-6 shadow-[5px_5px_0_var(--color-teal)] dark:border-[#3a352a] dark:bg-[#1f1b14] dark:shadow-[5px_5px_0_var(--color-teal)]"
         >
-          <span className="mb-2.5 inline-block rounded-md bg-[#2f5c8a]/10 px-2 py-1 text-[11px] font-bold uppercase tracking-wide text-[#2f5c8a] dark:bg-[#6f9fd6]/15 dark:text-[#6f9fd6]">
+          <span className="mb-2.5 inline-block rotate-1 bg-[var(--color-teal)] px-2 py-1 font-display text-[11px] text-[var(--color-paper)]">
             Founding Member · Slack Admin
           </span>
-          <h3 className="mb-2 text-lg font-semibold">ALStogether</h3>
-          <p className="mb-4 max-w-2xl text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+          <h3 className="mb-2 font-display text-lg">ALStogether</h3>
+          <p className="mb-4 max-w-2xl text-sm leading-relaxed text-[var(--color-ink-soft)] dark:text-[#c9c2b2]">
             Founding member and Slack Admin of a community connecting people living with ALS,
             caregivers, and supporters. I launched and manage the workspace — from initial setup
             to ongoing moderation, onboarding workflows, and enablement materials — building a
             safe, active space for people navigating one of the hardest things a person can face.
-            It's the same skill set I use at work — Slack administration, community design, adoption
-            strategy — pointed at something that has nothing to do with a paycheck.
+            It's the same skill set I use at work — Slack administration, community design,
+            adoption strategy — pointed at something that has nothing to do with a paycheck.
           </p>
           <a
             href="https://www.alstogether.org/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-semibold text-[#2f5c8a] hover:underline dark:text-[#6f9fd6]"
+            className="text-sm font-bold uppercase tracking-wide underline decoration-2 underline-offset-4 hover:text-[var(--color-teal)]"
           >
             alstogether.org →
           </a>

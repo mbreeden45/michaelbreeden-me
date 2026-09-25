@@ -19,7 +19,7 @@ export default function ThemeToggle() {
       type="button"
       onClick={() => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))}
       aria-label="Toggle color theme"
-      className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-600 transition hover:border-slate-300 hover:text-slate-900 dark:border-slate-800 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:text-white"
+      className="flex h-9 w-9 items-center justify-center border-2 border-[var(--color-ink)] text-[var(--color-ink)] transition hover:bg-[var(--color-hot)] hover:text-[var(--color-paper)] dark:border-[#e8e2d3] dark:text-[#e8e2d3] dark:hover:bg-[var(--color-hot)] dark:hover:text-[var(--color-paper)]"
     >
       {theme === 'dark' ? (
         <svg viewBox="0 0 24 24" fill="none" className="h-4.5 w-4.5">
