@@ -12,7 +12,7 @@ export default function SectionHeading({
       <span className="font-display text-sm text-[var(--color-hot)]">{index}</span>
       <div>
         <h2 className="font-display text-2xl">{title}</h2>
-        <p className="mt-1.5 max-w-xl text-sm text-[var(--color-ink-soft)] dark:text-[#c9c2b2]">
+        <p className="mt-1.5 max-w-xl text-sm text-[var(--color-ink-soft)] dark:text-[#c9c9c9]">
           {subtitle}
         </p>
       </div>

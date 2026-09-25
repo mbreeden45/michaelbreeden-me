@@ -12,7 +12,7 @@ export const projects: Project[] = [
     tag: 'Enterprise Integration',
     title: 'Slack ↔ Salesforce Case Sync',
     description:
-      "Built and demoed a bidirectional case-management integration for a Fortune 500 enterprise customer — Slack threads sync to Salesforce Cases and back in real time. Now navigating the customer's security and admin approval process toward production.",
+      "Built a bidirectional case-management integration for one of the most valuable technology companies in the world — Slack threads sync to Salesforce Cases and back in real time. Now moving through the customer's security and admin approval process toward production.",
     stack: ['Node.js', 'Slack Bolt', 'jsforce'],
   },
   {
@@ -23,10 +23,10 @@ export const projects: Project[] = [
     stack: ['Node.js', 'MCP', 'Slack Bolt SDK'],
   },
   {
-    tag: 'Feasibility Demo',
+    tag: 'Live Event Tech',
     title: 'Live Event Engagement App',
     description:
-      'Built a real-time trivia experience for an upcoming marquee sports activation — live scoring, anti-cheat timing safeguards, and a documented decision log and risk assessment handed off toward a production build.',
+      'Built a fully working real-time trivia app for a marquee motorsport activation — live scoring, anti-cheat timing safeguards, and a complete decision log and risk assessment. The build works end to end; it now moves through the account team\'s production rollout process.',
     stack: ['Node.js', 'Slack Bolt', 'Block Kit'],
   },
   {
@@ -42,6 +42,7 @@ export const projects: Project[] = [
     description:
       'A client-side app that renders and exports customizable, print-accurate MLB ticket stubs, pulled live from the MLB Stats API.',
     stack: ['React', 'TypeScript'],
+    demoUrl: 'https://tickets.michaelbreeden.me',
   },
 ]
 

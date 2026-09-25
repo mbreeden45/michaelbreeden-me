@@ -18,13 +18,13 @@ export default function BeyondWork() {
           whileInView={{ opacity: 1, y: 0, rotate: -1 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.45 }}
-          className="relative border-2 border-[var(--color-ink)] bg-[var(--color-paper)] p-6 shadow-[5px_5px_0_var(--color-teal)] dark:border-[#3a352a] dark:bg-[#1f1b14] dark:shadow-[5px_5px_0_var(--color-teal)]"
+          className="relative border-2 border-[var(--color-ink)] bg-[var(--color-paper)] p-6 shadow-[5px_5px_0_var(--color-hot)] dark:border-[#3a3a3a] dark:bg-[#1a1a1a] dark:shadow-[5px_5px_0_var(--color-hot)]"
         >
-          <span className="mb-2.5 inline-block rotate-1 bg-[var(--color-teal)] px-2 py-1 font-display text-[11px] text-[var(--color-paper)]">
+          <span className="mb-2.5 inline-block rotate-1 bg-[var(--color-ink)] px-2 py-1 font-display text-[11px] text-[var(--color-paper)] dark:bg-[#ececec] dark:text-[var(--color-ink)]">
             Founding Member · Slack Admin
           </span>
           <h3 className="mb-2 font-display text-lg">ALStogether</h3>
-          <p className="mb-4 max-w-2xl text-sm leading-relaxed text-[var(--color-ink-soft)] dark:text-[#c9c2b2]">
+          <p className="mb-4 max-w-2xl text-sm leading-relaxed text-[var(--color-ink-soft)] dark:text-[#c9c9c9]">
             Founding member and Slack Admin of a community connecting people living with ALS,
             caregivers, and supporters. I launched and manage the workspace — from initial setup
             to ongoing moderation, onboarding workflows, and enablement materials — building a
@@ -36,7 +36,7 @@ export default function BeyondWork() {
             href="https://www.alstogether.org/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-bold uppercase tracking-wide underline decoration-2 underline-offset-4 hover:text-[var(--color-teal)]"
+            className="text-sm font-bold uppercase tracking-wide underline decoration-2 underline-offset-4 hover:text-[var(--color-hot)]"
           >
             alstogether.org →
           </a>

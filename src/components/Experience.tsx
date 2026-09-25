@@ -18,11 +18,11 @@ function RoleBlock({
     <div className="mb-3 last:mb-0">
       <div className="flex flex-wrap items-baseline justify-between gap-x-3">
         <h4 className="font-display text-sm">{role.title}</h4>
-        <span className="font-mono text-xs text-[var(--color-ink-soft)] dark:text-[#8a8270]">
+        <span className="font-mono text-xs text-[var(--color-ink-soft)] dark:text-[#8a8a8a]">
           {role.dates}
         </span>
       </div>
-      <ul className="mt-1.5 list-disc space-y-1 pl-4 text-sm leading-relaxed text-[var(--color-ink-soft)] dark:text-[#c9c2b2]">
+      <ul className="mt-1.5 list-disc space-y-1 pl-4 text-sm leading-relaxed text-[var(--color-ink-soft)] dark:text-[#c9c9c9]">
         {visibleBullets.map((b) => (
           <li key={b}>{b}</li>
         ))}
@@ -55,7 +55,7 @@ export default function Experience() {
             href="/Michael-Breeden-Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="border-2 border-[var(--color-ink)] px-4 py-2 text-xs font-bold uppercase tracking-wide transition hover:bg-[var(--color-ink)] hover:text-[var(--color-paper)] dark:border-[#e8e2d3] dark:text-[#e8e2d3] dark:hover:bg-[#e8e2d3] dark:hover:text-[var(--color-ink)]"
+            className="border-2 border-[var(--color-ink)] px-4 py-2 text-xs font-bold uppercase tracking-wide transition hover:bg-[var(--color-ink)] hover:text-[var(--color-paper)] dark:border-[#ececec] dark:text-[#ececec] dark:hover:bg-[#ececec] dark:hover:text-[var(--color-ink)]"
           >
             Résumé (PDF)
           </a>
@@ -69,20 +69,20 @@ export default function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.4, delay: (i % 4) * 0.05 }}
-              className="relative border-l-2 border-[var(--color-ink)] pl-5 dark:border-[#3a352a]"
+              className="relative border-l-2 border-[var(--color-ink)] pl-5 dark:border-[#3a3a3a]"
             >
-              <div className="absolute -left-[7px] top-1.5 h-3 w-3 border-2 border-[var(--color-ink)] bg-[var(--color-hot)] dark:border-[#e8e2d3]" />
+              <div className="absolute -left-[7px] top-1.5 h-3 w-3 border-2 border-[var(--color-ink)] bg-[var(--color-hot)] dark:border-[#ececec]" />
               <div className="mb-2 flex flex-wrap items-baseline justify-between gap-x-3">
                 <h3 className="font-display text-base">{entry.company}</h3>
-                <span className="font-mono text-xs text-[var(--color-ink-soft)] dark:text-[#8a8270]">
+                <span className="font-mono text-xs text-[var(--color-ink-soft)] dark:text-[#8a8a8a]">
                   {entry.location} · {entry.dates}
                 </span>
               </div>
-              <div className="border-2 border-[var(--color-ink)] bg-[var(--color-paper)] p-4 dark:border-[#3a352a] dark:bg-[#1f1b14]">
+              <div className="border-2 border-[var(--color-ink)] bg-[var(--color-paper)] p-4 dark:border-[#3a3a3a] dark:bg-[#1a1a1a]">
                 {entry.roles.map((role, ri) => (
                   <div key={role.title}>
                     {ri > 0 ? (
-                      <hr className="my-3 border-dashed border-[var(--color-ink)]/30 dark:border-[#45402f]" />
+                      <hr className="my-3 border-dashed border-[var(--color-ink)]/30 dark:border-[#3a3a3a]" />
                     ) : null}
                     <RoleBlock role={role} isFirstRole={i === 0 && ri === 0} />
                   </div>

@@ -34,12 +34,12 @@ export default function StatTile({ stat, index }: { stat: Stat; index: number })
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-30px' }}
       transition={{ duration: 0.4, delay: index * 0.08 }}
-      className="border-2 border-[var(--color-ink)] bg-[var(--color-paper)] p-5 dark:border-[#3a352a] dark:bg-[#1f1b14]"
+      className="border-2 border-[var(--color-ink)] bg-[var(--color-paper)] p-5 dark:border-[#3a3a3a] dark:bg-[#1a1a1a]"
     >
       <div className="font-display text-2xl text-[var(--color-hot)]">
         {isNumeric ? <AnimatedNumber value={numeric} /> : stat.num}
       </div>
-      <div className="mt-1 text-xs font-bold uppercase tracking-wide text-[var(--color-ink-soft)] dark:text-[#8a8270]">
+      <div className="mt-1 text-xs font-bold uppercase tracking-wide text-[var(--color-ink-soft)] dark:text-[#8a8a8a]">
         {stat.label}
       </div>
     </motion.div>

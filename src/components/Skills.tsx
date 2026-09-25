@@ -16,14 +16,14 @@ export default function Skills() {
           {skills.map((s, i) => (
             <span
               key={s}
-              className="border-2 border-[var(--color-ink)] px-3 py-1.5 text-sm font-bold dark:border-[#3a352a] dark:text-[#e8e2d3]"
+              className="border-2 border-[var(--color-ink)] px-3 py-1.5 text-sm font-bold dark:border-[#3a3a3a] dark:text-[#ececec]"
               style={{ transform: `rotate(${i % 2 === 0 ? -1 : 1}deg)` }}
             >
               {s}
             </span>
           ))}
         </div>
-        <p className="mt-6 max-w-xl text-sm text-[var(--color-ink-soft)] dark:text-[#c9c2b2]">
+        <p className="mt-6 max-w-xl text-sm text-[var(--color-ink-soft)] dark:text-[#c9c9c9]">
           Delivery: 10+ years of enterprise customer-facing delivery, program management,
           and adoption strategy across Fortune 500 accounts.
         </p>

@@ -22,9 +22,9 @@ export const experience: ExperienceEntry[] = [
         dates: 'Feb 2024 – Present',
         bullets: [
           "Solution Design Architect leading Salesforce's own internal migration off Chatter onto Slack as its primary collaboration platform — the largest and most complex Salesforce Channels rollout undertaken",
-          'Built and demoed a Slack ↔ Salesforce case-management integration proof of concept for NVIDIA with bidirectional case/thread sync; now leading it through enterprise security review toward production',
-          'Designed an internal Slack analytics tool for Oracle, then extended it into an MCP server so the same analysis runs conversationally through Slackbot',
-          "Built a feasibility-demo Slack app for Salesforce's Sports Marketing team to run live fan trivia at the 2026 Las Vegas Grand Prix, with real-time scoring and anti-cheat safeguards",
+          'Built a Slack ↔ Salesforce case-management integration with bidirectional case/thread sync for one of the most valuable technology companies in the world; now leading it through enterprise security review toward production',
+          'Designed an internal Slack analytics tool for a longstanding enterprise partner, then extended it into an MCP server so the same analysis runs conversationally through Slackbot',
+          "Built a fully working live-trivia Slack app for Salesforce's Sports Marketing team at a marquee motorsport activation, with real-time scoring and anti-cheat safeguards — now moving through the account team's production rollout process",
         ],
       },
       {
@@ -37,10 +37,17 @@ export const experience: ExperienceEntry[] = [
         ],
       },
       {
-        title: 'Senior Learning Consultant → Enterprise Learning Consultant',
-        dates: 'Dec 2020 – Aug 2022',
+        title: 'Senior Learning Consultant',
+        dates: 'Oct 2021 – Aug 2022',
         bullets: [
-          "Delivered enterprise learning and adoption consulting as part of Slack's Specialized Services org, building the foundation for later solution architecture work",
+          "Promoted from Enterprise Learning Consultant; delivered enterprise learning and adoption consulting as part of Slack's Specialized Services org, building the foundation for later solution architecture work",
+        ],
+      },
+      {
+        title: 'Enterprise Learning Consultant',
+        dates: 'Dec 2020 – Oct 2021',
+        bullets: [
+          "Delivered enterprise learning and adoption consulting as part of Slack's Specialized Services org",
         ],
       },
     ],
