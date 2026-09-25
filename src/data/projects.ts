@@ -1,0 +1,77 @@
+export interface Project {
+  tag: string
+  title: string
+  description: string
+  stack: string[]
+  demoUrl?: string
+  repoUrl?: string
+}
+
+export const projects: Project[] = [
+  {
+    tag: 'Enterprise Integration',
+    title: 'Slack ↔ Salesforce Case Sync',
+    description:
+      "Built and demoed a bidirectional case-management integration for a Fortune 500 enterprise customer — Slack threads sync to Salesforce Cases and back in real time. Now navigating the customer's security and admin approval process toward production.",
+    stack: ['Node.js', 'Slack Bolt', 'jsforce'],
+  },
+  {
+    tag: 'Agentic / MCP',
+    title: 'Conversational Slack Analytics',
+    description:
+      'Designed a custom Slack app with a live channel-analytics dashboard, then extended it into an MCP (Model Context Protocol) server so Slackbot answers the same questions conversationally — built for a longstanding enterprise partner, tested and documented.',
+    stack: ['Node.js', 'MCP', 'Slack Bolt SDK'],
+  },
+  {
+    tag: 'Feasibility Demo',
+    title: 'Live Event Engagement App',
+    description:
+      'Built a real-time trivia experience for an upcoming marquee sports activation — live scoring, anti-cheat timing safeguards, and a documented decision log and risk assessment handed off toward a production build.',
+    stack: ['Node.js', 'Slack Bolt', 'Block Kit'],
+  },
+  {
+    tag: 'Personal Project',
+    title: 'Agentforce Certification Trainer',
+    description:
+      'Self-built study app with 364 exam-style questions and progress tracking, built to master Agentforce platform concepts hands-on rather than just reading about them.',
+    stack: ['React', 'TypeScript'],
+  },
+  {
+    tag: 'Personal Project',
+    title: 'MLB Ticket Generator',
+    description:
+      'A client-side app that renders and exports customizable, print-accurate MLB ticket stubs, pulled live from the MLB Stats API.',
+    stack: ['React', 'TypeScript'],
+  },
+]
+
+export interface Stat {
+  num: string
+  label: string
+}
+
+export const stats: Stat[] = [
+  { num: '524', label: 'Trailhead badges' },
+  { num: '200,650', label: 'Trailhead points' },
+  { num: 'Four-Star', label: 'Ranger rank' },
+  { num: 'Innovator', label: 'Agentblazer status, 2026' },
+]
+
+export const badges: string[] = [
+  'Salesforce Certified Administrator',
+  'Salesforce Certified Slack Consultant',
+  'Salesforce Certified AI Associate (2025)',
+  'In progress: Agentforce Specialist exam (EOY 2026)',
+]
+
+export const skills: string[] = [
+  'JavaScript',
+  'TypeScript',
+  'Node.js',
+  'React',
+  'Slack Bolt SDK',
+  'Slack Block Kit',
+  'MCP server development',
+  'Salesforce API (jsforce)',
+  'Salesforce Flow & Workflow Builder',
+]
