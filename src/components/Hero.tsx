@@ -71,7 +71,7 @@ export default function Hero() {
         >
           <div
             aria-hidden
-            className="absolute -top-3 left-1/2 h-6 w-16 -translate-x-1/2 -rotate-2 border border-[var(--color-ink)]/30 bg-[var(--color-paper)]/90 mix-blend-multiply"
+            className="absolute -top-3 left-1/2 h-6 w-16 -translate-x-1/2 -rotate-2 border border-black/20 bg-white/80 shadow-sm"
           />
           <div className="relative h-56 w-48 overflow-hidden sm:h-72 sm:w-64">
             <img
