@@ -1,6 +1,6 @@
 # michaelbreeden.me
 
-Personal portfolio site for Michael Breeden — Solutions Architect at Slack (Salesforce), building agentic AI solutions.
+Personal portfolio site for Michael Breeden — Solution Architect at Slack (Salesforce), building agentic AI solutions.
 
 ## Stack
 

@@ -13,7 +13,7 @@ export default function Hero() {
         >
           <p className="mb-3 inline-flex items-center gap-1.5 -rotate-1 bg-[var(--color-ink)] px-2 py-1 text-xs font-bold uppercase tracking-widest text-[var(--color-paper)] dark:bg-[#ececec] dark:text-[var(--color-ink)]">
             <span className="h-2 w-2 bg-[var(--color-hot)]" />
-            Solutions Architect · Slack (Salesforce)
+            Solution Architect · Slack (Salesforce)
           </p>
           <h1 className="font-display text-4xl leading-[1.05] sm:text-5xl">
             I build agentic
