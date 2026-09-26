@@ -30,7 +30,7 @@ export default function BeyondWork() {
             to ongoing moderation, onboarding workflows, and enablement materials — building a
             safe, active space for people navigating one of the hardest things a person can face.
             It's the same skill set I use at work — Slack administration, community design,
-            adoption strategy — pointed at something that has nothing to do with a paycheck.
+            adoption strategy — pointed at a cause I care about.
           </p>
           <a
             href="https://www.alstogether.org/"
