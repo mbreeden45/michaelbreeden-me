@@ -26,7 +26,7 @@ export const projects: Project[] = [
     tag: 'Live Event Tech',
     title: 'Live Event Engagement App',
     description:
-      'Built a fully working real-time trivia app for a marquee motorsport activation — live scoring, anti-cheat timing safeguards, and a complete decision log and risk assessment. The build works end to end; it now moves through the account team\'s production rollout process.',
+      "Built a fully working real-time trivia app for a marquee motorsport activation — live scoring, anti-cheat timing safeguards, and a complete decision log and risk assessment. The build works end to end; it now moves through Creative Technology's production rollout process.",
     stack: ['Node.js', 'Slack Bolt', 'Block Kit'],
   },
   {
