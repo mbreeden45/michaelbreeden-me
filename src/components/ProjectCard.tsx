@@ -12,7 +12,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.45, delay: (index % 3) * 0.06 }}
       whileHover={{ rotate: index % 2 === 0 ? -0.75 : 0.75, y: -3 }}
-      className="relative border-2 border-[var(--color-ink)] bg-[var(--color-paper)] p-5 shadow-[4px_4px_0_var(--color-ink)] dark:border-[#3a3a3a] dark:bg-[#1a1a1a] dark:shadow-[4px_4px_0_#000]"
+      className="relative flex h-full flex-col border-2 border-[var(--color-ink)] bg-[var(--color-paper)] p-5 shadow-[4px_4px_0_var(--color-ink)] dark:border-[#3a3a3a] dark:bg-[#1a1a1a] dark:shadow-[4px_4px_0_#000]"
     >
       {/* perforation notches */}
       <span className="ticket-notch -left-2 top-1/2 -translate-y-1/2" aria-hidden />
@@ -42,7 +42,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
         ))}
       </div>
       {project.diagram ? <ArchDiagram name={project.diagram} /> : null}
-      <div className="flex items-center justify-between border-t border-dashed border-[var(--color-ink)]/40 pt-3 text-sm font-bold dark:border-[#3a3a3a]">
+      <div className="mt-auto flex items-center justify-between border-t border-dashed border-[var(--color-ink)]/40 pt-3 text-sm font-bold dark:border-[#3a3a3a]">
         <div className="flex gap-3">
           {project.demoUrl ? (
             <a

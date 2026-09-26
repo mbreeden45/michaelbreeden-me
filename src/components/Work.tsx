@@ -15,7 +15,7 @@ export default function Work() {
         />
         <div className="grid gap-6 sm:grid-cols-2">
           {projects.map((p, i) => (
-            <div key={p.title} className={p.diagram ? 'sm:col-span-2' : ''}>
+            <div key={p.title} className={`h-full ${p.diagram ? 'sm:col-span-2' : ''}`}>
               <ProjectCard project={p} index={i} />
             </div>
           ))}
