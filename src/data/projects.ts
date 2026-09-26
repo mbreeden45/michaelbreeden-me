@@ -1,3 +1,5 @@
+import type { DiagramKey } from '../components/ArchDiagram'
+
 export interface Project {
   tag: string
   title: string
@@ -5,6 +7,7 @@ export interface Project {
   stack: string[]
   demoUrl?: string
   repoUrl?: string
+  diagram?: DiagramKey
 }
 
 export const projects: Project[] = [
@@ -14,6 +17,7 @@ export const projects: Project[] = [
     description:
       "Built a bidirectional case-management integration for one of the most valuable technology companies in the world — Slack threads sync to Salesforce Cases and back in real time. Now moving through the customer's security and admin approval process toward production.",
     stack: ['Node.js', 'Slack Bolt', 'jsforce'],
+    diagram: 'caseSync',
   },
   {
     tag: 'Agentic / MCP',
@@ -21,6 +25,7 @@ export const projects: Project[] = [
     description:
       'Designed a custom Slack app with a live channel-analytics dashboard, then extended it into an MCP (Model Context Protocol) server so Slackbot answers the same questions conversationally — built for a longstanding enterprise partner, tested and documented.',
     stack: ['Node.js', 'MCP', 'Slack Bolt SDK'],
+    diagram: 'analytics',
   },
   {
     tag: 'Live Event Tech',
@@ -28,6 +33,7 @@ export const projects: Project[] = [
     description:
       "Built a fully working real-time trivia app for a marquee motorsport activation — live scoring, anti-cheat timing safeguards, and a complete decision log and risk assessment. The build works end to end; it now moves through Creative Technology's production rollout process.",
     stack: ['Node.js', 'Slack Bolt', 'Block Kit'],
+    diagram: 'trivia',
   },
   {
     tag: 'Personal Project',

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import type { Project } from '../data/projects'
+import ArchDiagram from './ArchDiagram'
 
 export default function ProjectCard({ project, index }: { project: Project; index: number }) {
   const isRed = index % 2 === 0
@@ -40,6 +41,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
           </span>
         ))}
       </div>
+      {project.diagram ? <ArchDiagram name={project.diagram} /> : null}
       <div className="flex items-center justify-between border-t border-dashed border-[var(--color-ink)]/40 pt-3 text-sm font-bold dark:border-[#3a3a3a]">
         <div className="flex gap-3">
           {project.demoUrl ? (
@@ -62,7 +64,12 @@ export default function ProjectCard({ project, index }: { project: Project; inde
               CODE →
             </a>
           ) : null}
-          {!project.demoUrl && !project.repoUrl ? (
+          {!project.demoUrl && !project.repoUrl && project.diagram ? (
+            <span className="font-mono text-xs font-normal uppercase text-[var(--color-ink-soft)] dark:text-[#8a8a8a]">
+              Client confidential — architecture above
+            </span>
+          ) : null}
+          {!project.demoUrl && !project.repoUrl && !project.diagram ? (
             <span className="font-mono text-xs font-normal uppercase text-[var(--color-ink-soft)] dark:text-[#8a8a8a]">
               Details coming soon
             </span>
