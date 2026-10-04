@@ -6,7 +6,8 @@ export interface CustomerProject {
   need: string
   built: string
   why: string
-  callToDemo: string
+  timeLabel: string
+  buildTime: string
   status: string
   stack: string[]
   diagram: DiagramKey
@@ -28,7 +29,8 @@ export const customerProjects: CustomerProject[] = [
     built:
       'A minimal stand-in plugin, an MCP server, and a Slackbot skill. Slackbot reaches the plugin and runs allowlisted terminal actions; the skill makes it try instead of declining, checks the problem is resolved, and hands off to a human ticket if not.',
     why: "Proves Slackbot can reach the customer's own plugin over MCP and act on it, the exact blocker they were hitting.",
-    callToDemo: 'Same day',
+    timeLabel: 'Call to demo',
+    buildTime: 'Same day',
     status: 'Active sales cycle',
     stack: ['Node.js', 'MCP (stdio + HTTP)', 'Slackbot skill', 'Bash'],
     diagram: 'desktopControl',
@@ -40,7 +42,8 @@ export const customerProjects: CustomerProject[] = [
     built:
       'A custom Slack app with a live dashboard, extended into an MCP server so Slackbot answers the same questions conversationally. Tested and documented.',
     why: 'Anyone can ask in plain language, with no analytics role to hand out and no built-in size threshold in the way.',
-    callToDemo: 'Same day',
+    timeLabel: 'Call to demo',
+    buildTime: 'Same day',
     status: 'Active sales cycle',
     stack: ['Node.js', 'MCP', 'Slack Bolt SDK'],
     diagram: 'analytics',
@@ -50,9 +53,10 @@ export const customerProjects: CustomerProject[] = [
     title: 'Slack ↔ Salesforce Case Sync',
     need: "One of the most valuable technology companies in the world wanted its customers to open Cases and use Case Comments in a Slack Connect channel, where they already work. Case Comments live in a custom object, so the out-of-the-box integration doesn't work, and Salesforce Channels don't work with Slack Connect.",
     built:
-      'A bidirectional integration that syncs Slack threads to Salesforce Cases and back in real time, working around both gaps.',
+      'Showed what works out of the box first, then built only what was missing: a bidirectional integration that syncs Slack threads to Salesforce Cases and back in real time.',
     why: 'Fills a gap no out-of-the-box option covers, so customers can work their cases in Slack Connect.',
-    callToDemo: 'Same day',
+    timeLabel: 'Build time',
+    buildTime: 'Same day, after ~4 weeks of discovery',
     status: 'Security and legal review',
     stack: ['Node.js', 'Slack Bolt', 'jsforce'],
     diagram: 'caseSync',
@@ -64,7 +68,8 @@ export const customerProjects: CustomerProject[] = [
     built:
       'A real-time trivia app with live scoring, anti-cheat timing safeguards, and a full decision log and risk assessment. Three iterations with the team so far.',
     why: 'Turned a passing comment on one call into a working app, and a way to bring Slack into contests across the season.',
-    callToDemo: 'Same day',
+    timeLabel: 'Call to demo',
+    buildTime: 'Same day',
     status: 'Event end of November',
     stack: ['Node.js', 'Slack Bolt', 'Block Kit'],
     diagram: 'trivia',

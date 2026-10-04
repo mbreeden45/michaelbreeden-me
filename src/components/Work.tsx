@@ -12,7 +12,7 @@ export default function Work() {
         <SectionHeading
           index="01"
           title="Builder projects"
-          subtitle="Customer builds go from first call to working demo the same day. Customer details are redacted."
+          subtitle="Proofs of concept built for customers, most from phone call to working demo the same day. Customer details are redacted."
         />
         <div className="grid gap-6">
           {customerProjects.map((p, i) => (

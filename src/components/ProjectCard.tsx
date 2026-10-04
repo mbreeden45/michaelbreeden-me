@@ -51,7 +51,7 @@ export default function ProjectCard({ project, index }: { project: CustomerProje
 
       <div className="mb-4 flex flex-wrap gap-2">
         <Fact label="Status" value={project.status} />
-        <Fact label="Call to demo" value={project.callToDemo} />
+        <Fact label={project.timeLabel} value={project.buildTime} />
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2 sm:items-center">
