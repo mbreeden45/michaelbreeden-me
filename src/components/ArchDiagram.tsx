@@ -123,10 +123,32 @@ function TriviaDiagram() {
   )
 }
 
+function DesktopControlDiagram() {
+  return (
+    <svg viewBox="0 0 300 150" className="w-full">
+      <ArrowheadDefs />
+      <Box x={8} y={22} w={76} h={36} label="SLACKBOT" sub="skill: try first" />
+      <Box x={106} y={20} w={90} h={40} label="MCP SERVER" sub="allowlisted actions" accent />
+      <Box x={218} y={22} w={74} h={36} label="macOS" sub="Finder · Focus" />
+      <Box x={8} y={88} w={76} h={36} label="TICKET" sub="human support" />
+      <Arrow x1={84} y1={40} x2={106} y2={40} />
+      <Arrow x1={196} y1={40} x2={218} y2={40} />
+      <Arrow x1={46} y1={58} x2={46} y2={88} />
+      <text x={92} y={110} fontFamily="Space Mono" fontSize="7" fill="var(--color-ink-soft)" className="dark:fill-[#8a8a8a]">
+        not resolved? hand off to a person
+      </text>
+      <text x={150} y={142} textAnchor="middle" fontFamily="Space Mono" fontSize="7" fill="var(--color-ink-soft)" className="dark:fill-[#8a8a8a]">
+        the AI picks the tool; only allowlisted actions ever run
+      </text>
+    </svg>
+  )
+}
+
 const DIAGRAMS = {
   caseSync: CaseSyncDiagram,
   analytics: AnalyticsDiagram,
   trivia: TriviaDiagram,
+  desktopControl: DesktopControlDiagram,
 }
 
 export type DiagramKey = keyof typeof DIAGRAMS

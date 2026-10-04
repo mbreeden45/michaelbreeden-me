@@ -36,6 +36,14 @@ export const projects: Project[] = [
     diagram: 'trivia',
   },
   {
+    tag: 'Agentic / MCP',
+    title: 'Desktop Control MCP Plugin',
+    description:
+      "Built a Codex plugin and a Slack-facing MCP server that let an assistant fix Mac setting requests for IT support — hide icons, dark mode, Focus. Slackbot kept declining these, so I wrote a Slackbot skill that makes it try first, ask the user whether it's resolved, and hand off to a human ticket if not. The server only runs a fixed allowlist of actions, never arbitrary shell. Plugin, Slack app, skill, and recorded demos done in under two hours — a second build for a major enterprise software company in the same sales cycle.",
+    stack: ['Node.js', 'MCP (stdio + HTTP)', 'Slackbot skill', 'Bash'],
+    diagram: 'desktopControl',
+  },
+  {
     tag: 'Personal Project',
     title: 'Agentforce Certification Trainer',
     description:
