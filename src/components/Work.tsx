@@ -1,4 +1,5 @@
-import { projects } from '../data/projects'
+import { customerProjects } from '../data/projects'
+import PersonalProjects from './PersonalProjects'
 import ProjectCard from './ProjectCard'
 import SectionHeading from './SectionHeading'
 import TornDivider from './TornDivider'
@@ -11,15 +12,14 @@ export default function Work() {
         <SectionHeading
           index="01"
           title="Builder projects"
-          subtitle="Hands-on builds, not just architecture diagrams — each one shipped, demoed, or in active use."
+          subtitle="Customer builds go from first call to working demo in hours. Customer details are redacted."
         />
-        <div className="grid gap-6 sm:grid-cols-2">
-          {projects.map((p, i) => (
-            <div key={p.title} className={`h-full ${p.diagram ? 'sm:col-span-2' : ''}`}>
-              <ProjectCard project={p} index={i} />
-            </div>
+        <div className="grid gap-6">
+          {customerProjects.map((p, i) => (
+            <ProjectCard key={p.title} project={p} index={i} />
           ))}
         </div>
+        <PersonalProjects />
       </div>
     </section>
   )
