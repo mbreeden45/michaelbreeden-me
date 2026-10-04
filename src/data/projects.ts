@@ -5,7 +5,8 @@ export interface CustomerProject {
   title: string
   need: string
   built: string
-  builtIn: string
+  why: string
+  callToDemo: string
   status: string
   stack: string[]
   diagram: DiagramKey
@@ -25,8 +26,9 @@ export const customerProjects: CustomerProject[] = [
     title: 'Slackbot ↔ Codex Plugin via MCP',
     need: 'A major enterprise software company had built a Codex plugin and wanted it usable from Slack.',
     built:
-      "A minimal stand-in plugin, an MCP server, and a Slackbot skill that prove Slackbot can reach the plugin and run allowlisted terminal actions. The skill makes Slackbot try instead of declining, checks the problem is resolved, and hands off to a human ticket if not.",
-    builtIn: 'Under 2 hours',
+      'A minimal stand-in plugin, an MCP server, and a Slackbot skill. Slackbot reaches the plugin and runs allowlisted terminal actions; the skill makes it try instead of declining, checks the problem is resolved, and hands off to a human ticket if not.',
+    why: "Proves Slackbot can reach the customer's own plugin over MCP and act on it, the exact blocker they were hitting.",
+    callToDemo: 'Same day',
     status: 'Active sales cycle',
     stack: ['Node.js', 'MCP (stdio + HTTP)', 'Slackbot skill', 'Bash'],
     diagram: 'desktopControl',
@@ -34,10 +36,11 @@ export const customerProjects: CustomerProject[] = [
   {
     tag: 'Agentic / MCP',
     title: 'Conversational Slack Analytics',
-    need: 'A longstanding enterprise partner wanted channel analytics where their team already works.',
+    need: "Users wanted channel analytics quickly and in natural language. The customer didn't want to grant analytics roles to everyone who asks, and Slack's built-in analytics only show above certain thresholds, such as channels over 50 people.",
     built:
       'A custom Slack app with a live dashboard, extended into an MCP server so Slackbot answers the same questions conversationally. Tested and documented.',
-    builtIn: 'Hours',
+    why: 'Anyone can ask in plain language, with no analytics role to hand out and no built-in size threshold in the way.',
+    callToDemo: 'Same day',
     status: 'Active sales cycle',
     stack: ['Node.js', 'MCP', 'Slack Bolt SDK'],
     diagram: 'analytics',
@@ -45,10 +48,11 @@ export const customerProjects: CustomerProject[] = [
   {
     tag: 'Enterprise Integration',
     title: 'Slack ↔ Salesforce Case Sync',
-    need: 'One of the most valuable technology companies in the world needed Slack threads and Salesforce Cases kept in step.',
+    need: "One of the most valuable technology companies in the world wanted its customers to open Cases and use Case Comments in a Slack Connect channel, where they already work. Case Comments live in a custom object, so the out-of-the-box integration doesn't work, and Salesforce Channels don't work with Slack Connect.",
     built:
-      'A bidirectional case-management integration that syncs threads to Cases and back in real time.',
-    builtIn: 'Hours',
+      'A bidirectional integration that syncs Slack threads to Salesforce Cases and back in real time, working around both gaps.',
+    why: 'Fills a gap no out-of-the-box option covers, so customers can work their cases in Slack Connect.',
+    callToDemo: 'Same day',
     status: 'Security and legal review',
     stack: ['Node.js', 'Slack Bolt', 'jsforce'],
     diagram: 'caseSync',
@@ -56,10 +60,11 @@ export const customerProjects: CustomerProject[] = [
   {
     tag: 'Live Event Tech',
     title: 'Live Event Engagement App',
-    need: "Salesforce's Sports Marketing team needed an engagement app for a marquee motorsport activation.",
+    need: "Two Salesforce teams run contests on different platforms across a motorsport season, and needed trivia for seven people with Slack involved. Building it as a Slack app was my idea, from a single 30-minute call.",
     built:
       'A real-time trivia app with live scoring, anti-cheat timing safeguards, and a full decision log and risk assessment. Three iterations with the team so far.',
-    builtIn: 'Hours',
+    why: 'Turned a passing comment on one call into a working app, and a way to bring Slack into contests across the season.',
+    callToDemo: 'Same day',
     status: 'Event end of November',
     stack: ['Node.js', 'Slack Bolt', 'Block Kit'],
     diagram: 'trivia',

@@ -32,11 +32,11 @@ export default function Hero() {
               </svg>
             </span>
             <br />
-            in hours.
+            the same day.
           </h1>
           <p className="mt-6 max-w-md text-base leading-relaxed text-[var(--color-ink-soft)] dark:text-[#c9c9c9]">
             Discovery, design, build, demo — each of my recent builds went from first
-            customer call to working demo in hours, and now sits in an active sales
+            customer call to working demo the same day, and now sits in an active sales
             cycle. 10+ years of enterprise delivery behind it, and the most enjoyable
             stretch of my career so far.
           </p>

@@ -45,9 +45,13 @@ export default function ProjectCard({ project, index }: { project: CustomerProje
 
       <h3 className="mb-3 font-display text-lg">{project.title}</h3>
 
+      <p className="mb-4 border-l-4 border-[var(--color-hot)] pl-3 text-sm font-bold leading-snug">
+        {project.why}
+      </p>
+
       <div className="mb-4 flex flex-wrap gap-2">
-        <Fact label="Built in" value={project.builtIn} />
         <Fact label="Status" value={project.status} />
+        <Fact label="Call to demo" value={project.callToDemo} />
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2 sm:items-center">
