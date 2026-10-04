@@ -74,6 +74,7 @@ export default function Hero() {
             aria-hidden
             className="absolute -top-3 left-1/2 h-6 w-16 -translate-x-1/2 -rotate-2 border border-black/20 bg-white/80 shadow-sm"
           />
+          <p className="stamp mb-2 mt-3 rotate-1 text-center text-lg">Michael Breeden</p>
           <div className="relative h-56 w-48 overflow-hidden sm:h-72 sm:w-64">
             <img
               src={headshot}

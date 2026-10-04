@@ -40,6 +40,10 @@ export default function PersonalProjects() {
           </li>
         ))}
       </ul>
+      <p className="stamp mt-5 -rotate-1 text-base text-[var(--color-ink-soft)] dark:text-[#c9c9c9]">
+        <span className="text-[var(--color-hot)]">*</span> Demo won&apos;t load? Corporate VPNs
+        love blocking new domains. Try it off the VPN. (Yes, I&apos;ve been there.)
+      </p>
     </div>
   )
 }
