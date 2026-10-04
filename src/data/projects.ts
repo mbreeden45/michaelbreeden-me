@@ -15,7 +15,7 @@ export const projects: Project[] = [
     tag: 'Enterprise Integration',
     title: 'Slack ↔ Salesforce Case Sync',
     description:
-      "Built a bidirectional case-management integration for one of the most valuable technology companies in the world — Slack threads sync to Salesforce Cases and back in real time. Now moving through the customer's security and admin approval process toward production.",
+      "Built a bidirectional case-management integration for one of the most valuable technology companies in the world — Slack threads sync to Salesforce Cases and back in real time. Discovery call to working demo in hours; now in an active sales cycle and moving through the customer's security and admin approval process.",
     stack: ['Node.js', 'Slack Bolt', 'jsforce'],
     diagram: 'caseSync',
   },
@@ -23,7 +23,7 @@ export const projects: Project[] = [
     tag: 'Agentic / MCP',
     title: 'Conversational Slack Analytics',
     description:
-      'Designed a custom Slack app with a live channel-analytics dashboard, then extended it into an MCP (Model Context Protocol) server so Slackbot answers the same questions conversationally — built for a longstanding enterprise partner, tested and documented.',
+      'Designed a custom Slack app with a live channel-analytics dashboard, then extended it into an MCP (Model Context Protocol) server so Slackbot answers the same questions conversationally — built for a longstanding enterprise partner, tested and documented. Discovery to demo in hours; now in an active sales cycle.',
     stack: ['Node.js', 'MCP', 'Slack Bolt SDK'],
     diagram: 'analytics',
   },
@@ -31,7 +31,7 @@ export const projects: Project[] = [
     tag: 'Live Event Tech',
     title: 'Live Event Engagement App',
     description:
-      "Built a fully working real-time trivia app for a marquee motorsport activation — live scoring, anti-cheat timing safeguards, and a complete decision log and risk assessment. The build works end to end; it now moves through Creative Technology's production rollout process.",
+      "Built a fully working real-time trivia app for a marquee motorsport activation — live scoring, anti-cheat timing safeguards, and a complete decision log and risk assessment. Discovery to working build in hours, then three iterations with the team. The event is at the end of November, and the app is ready for Creative Technology's production rollout process.",
     stack: ['Node.js', 'Slack Bolt', 'Block Kit'],
     diagram: 'trivia',
   },

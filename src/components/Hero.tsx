@@ -16,12 +16,12 @@ export default function Hero() {
             Solution Architect · Slack (Salesforce)
           </p>
           <h1 className="font-display text-4xl leading-[1.05] sm:text-5xl">
-            I build agentic
+            I go from customer
             <br />
-            solutions,
+            call to a
             <br />
             <span className="relative inline-block">
-              then stay to see
+              working demo
               <svg
                 aria-hidden
                 viewBox="0 0 300 16"
@@ -32,12 +32,13 @@ export default function Hero() {
               </svg>
             </span>
             <br />
-            them work.
+            in hours.
           </h1>
           <p className="mt-6 max-w-md text-base leading-relaxed text-[var(--color-ink-soft)] dark:text-[#c9c9c9]">
-            10+ years designing and delivering enterprise technical solutions, and the
-            last six months building hands-on with Slack Bolt, MCP servers, and the
-            Salesforce Agentforce platform — the most enjoyable stretch of my career so far.
+            Discovery, design, build, demo — each of my recent builds went from first
+            customer call to working demo in hours, and now sits in an active sales
+            cycle. 10+ years of enterprise delivery behind it, and the most enjoyable
+            stretch of my career so far.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
