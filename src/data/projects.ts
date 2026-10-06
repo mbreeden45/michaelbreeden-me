@@ -81,7 +81,7 @@ export const personalProjects: PersonalProject[] = [
     title: 'Gluten-Free Beer Index',
     description:
       "A directory of about 240 gluten-free and low-gluten beers with the home-kit test results found for each, since \"gluten-free\" beer means four different things. Includes a Gemini-powered sommelier chat grounded in the catalog: it only recommends listed beers, quotes the test evidence, and never calls a beer \"safe.\" Built in a day with Claude.",
-    stack: ['Next.js', 'TypeScript', 'Postgres', 'Gemini API'],
+    stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Gemini API'],
     demoUrl: 'https://gf-beer-index.vercel.app',
   },
   {
