@@ -7,17 +7,25 @@ function getInitialTheme(): 'light' | 'dark' {
 }
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<'light' | 'dark'>(getInitialTheme)
+  // Starts as 'light' so server and client markup match; the real theme is read after mount.
+  const [theme, setTheme] = useState<'light' | 'dark'>('light')
 
   useEffect(() => {
-    document.documentElement.classList.toggle('dark', theme === 'dark')
-    localStorage.setItem('theme', theme)
-  }, [theme])
+    // oxlint-disable-next-line react/set-state-in-effect -- browser-only value, must run after hydration
+    setTheme(getInitialTheme())
+  }, [])
+
+  function toggle() {
+    const next = theme === 'dark' ? 'light' : 'dark'
+    document.documentElement.classList.toggle('dark', next === 'dark')
+    localStorage.setItem('theme', next)
+    setTheme(next)
+  }
 
   return (
     <button
       type="button"
-      onClick={() => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))}
+      onClick={toggle}
       aria-label="Toggle color theme"
       className="flex h-9 w-9 items-center justify-center border-2 border-[var(--color-ink)] text-[var(--color-ink)] transition hover:bg-[var(--color-hot)] hover:text-[var(--color-paper)] dark:border-[#ececec] dark:text-[#ececec] dark:hover:bg-[var(--color-hot)] dark:hover:text-[var(--color-paper)]"
     >

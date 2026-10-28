@@ -21,7 +21,7 @@ npm run dev
 npm run build
 ```
 
-Outputs a static site to `dist/`, ready to deploy to any static host (Hostinger, Vercel, Netlify, GitHub Pages, etc.).
+The build also pre-renders the page into `dist/index.html` (`src/entry-server.tsx` + `scripts/prerender.mjs`) so crawlers and link previews see real content without running JavaScript. Outputs a static site to `dist/`, ready to deploy to any static host (Hostinger, Vercel, Netlify, GitHub Pages, etc.).
 
 ## Editing content
 

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import headshot from '../assets/headshot.png'
+import headshot from '../assets/headshot.webp'
 
 export default function Hero() {
   return (
@@ -79,6 +79,9 @@ export default function Hero() {
             <img
               src={headshot}
               alt="Portrait of Michael Breeden"
+              width={500}
+              height={500}
+              fetchPriority="high"
               className="halftone-photo h-full w-full object-cover"
               style={{ objectPosition: '50% 15%' }}
             />
