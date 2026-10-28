@@ -10,7 +10,7 @@ export default function Footer() {
           Happy to walk through any of this in more detail.
         </p>
         <div className="flex flex-wrap items-center justify-between gap-3 text-sm dark:text-[#c9c9c9]">
-          <span className="font-mono text-xs">© {new Date().getFullYear()} Michael Breeden</span>
+          <span suppressHydrationWarning className="font-mono text-xs">© {new Date().getFullYear()} Michael Breeden</span>
           <span className="flex gap-3 font-bold uppercase tracking-wide">
             <a
               href="mailto:michaelcbreeden@gmail.com"
@@ -27,9 +27,21 @@ export default function Footer() {
             >
               LinkedIn
             </a>
+            <span aria-hidden>·</span>
+            <a
+              href="https://github.com/mbreeden45"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-2 underline-offset-4 hover:text-[var(--color-hot)]"
+            >
+              GitHub
+            </a>
           </span>
         </div>
-        <p className="mt-4 font-mono text-xs text-[var(--color-ink-soft)]/70 dark:text-[#8a8a8a]">
+        <p
+          suppressHydrationWarning
+          className="mt-4 font-mono text-xs text-[var(--color-ink-soft)]/70 dark:text-[#8a8a8a]"
+        >
           Last updated{' '}
           {new Date(__LAST_UPDATED__).toLocaleDateString(undefined, {
             year: 'numeric',
