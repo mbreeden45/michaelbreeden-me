@@ -27,6 +27,15 @@ export default function Footer() {
             >
               LinkedIn
             </a>
+            <span aria-hidden>·</span>
+            <a
+              href="https://github.com/mbreeden45"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-2 underline-offset-4 hover:text-[var(--color-hot)]"
+            >
+              GitHub
+            </a>
           </span>
         </div>
         <p
