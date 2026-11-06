@@ -35,9 +35,9 @@ export default function Hero() {
             the same day.
           </h1>
           <p className="mt-6 max-w-md text-base leading-relaxed text-[var(--color-ink-soft)] dark:text-[#c9c9c9]">
-            Three of my four recent proofs of concept went from phone call to working demo
-            the same day; the fourth started with four weeks of discovery. All four now
-            sit in active sales cycles or reviews. 10+ years of enterprise delivery behind it, and the most enjoyable
+            Three of my five recent proofs of concept went from phone call to working demo
+            the same day; the fourth started with four weeks of discovery, and the fifth is
+            in discovery now. Four sit in active sales cycles or reviews. 10+ years of enterprise delivery behind it, and the most enjoyable
             stretch of my career so far.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">

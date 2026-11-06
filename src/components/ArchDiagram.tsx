@@ -144,11 +144,32 @@ function DesktopControlDiagram() {
   )
 }
 
+function PreCallBriefDiagram() {
+  return (
+    <svg viewBox="0 0 300 150" className="w-full">
+      <ArrowheadDefs />
+      <Box x={8} y={22} w={76} h={36} label="FORM" sub="Workflow Builder" />
+      <Box x={106} y={20} w={90} h={40} label="SKILL" sub="Slackbot · confirms acct" accent />
+      <Box x={218} y={22} w={74} h={36} label="TABLEAU" sub="Next, via MCP" />
+      <Box x={106} y={88} w={90} h={36} label="SALESFORCE" sub="account · contacts" />
+      <Box x={218} y={88} w={74} h={36} label="CANVAS" sub="pre-call brief" />
+      <Arrow x1={84} y1={40} x2={106} y2={40} />
+      <Arrow x1={196} y1={40} x2={218} y2={40} />
+      <Arrow x1={151} y1={60} x2={151} y2={88} />
+      <Arrow x1={196} y1={60} x2={226} y2={88} />
+      <text x={150} y={142} textAnchor="middle" fontFamily="Space Mono" fontSize="7" fill="var(--color-ink-soft)" className="dark:fill-[#8a8a8a]">
+        one form in, one structured brief out
+      </text>
+    </svg>
+  )
+}
+
 const DIAGRAMS = {
   caseSync: CaseSyncDiagram,
   analytics: AnalyticsDiagram,
   trivia: TriviaDiagram,
   desktopControl: DesktopControlDiagram,
+  preCallBrief: PreCallBriefDiagram,
 }
 
 export type DiagramKey = keyof typeof DIAGRAMS
