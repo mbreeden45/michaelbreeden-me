@@ -23,6 +23,7 @@ export const experience: ExperienceEntry[] = [
         bullets: [
           "Solution Design Architect leading Salesforce's own internal migration off Chatter onto Slack as its primary collaboration platform — the largest and most complex Salesforce Channels rollout undertaken",
           'Built a Slack ↔ Salesforce case-management integration with bidirectional case/thread sync for one of the most valuable technology companies in the world; now leading it through enterprise security review toward production',
+          "Built a proof of concept connecting Slackbot to Tableau Next over MCP for a manufacturing customer's sales team, and wrote the build-approach document for handoff",
           'Designed an internal Slack analytics tool for a longstanding enterprise partner, then extended it into an MCP server so the same analysis runs conversationally through Slackbot',
           "Built a fully working live-trivia Slack app for Salesforce's Sports Marketing team at a marquee motorsport activation, with real-time scoring and anti-cheat safeguards — now moving through Creative Technology's production rollout process",
         ],

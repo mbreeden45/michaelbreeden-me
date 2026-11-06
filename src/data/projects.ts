@@ -36,6 +36,19 @@ export const customerProjects: CustomerProject[] = [
     diagram: 'desktopControl',
   },
   {
+    tag: 'Agentic / MCP · Proof of concept',
+    title: 'Slackbot + Tableau Next Pre-Call Brief',
+    need: "A manufacturer's field sales reps wanted a customer brief before every meeting without hunting through dashboards and records: account performance, product mix, and open pipeline in one place.",
+    built:
+      'A Slackbot skill that confirms the account in Salesforce, matches contacts to that account to prevent duplicates, queries Tableau Next over MCP, and builds a standard canvas, plus a Workflow Builder form that hands Slackbot structured inputs. Tested on real Salesforce data; found exact-name matching, empty-result, and canvas-size limits and designed around each.',
+    why: 'Shows how a Slack-first brief can draw on Salesforce and Tableau Next in one pass, and which limits to plan for before a build.',
+    timeLabel: 'Stage',
+    buildTime: 'Proof of concept',
+    status: 'Discovery',
+    stack: ['Slackbot skill', 'Workflow Builder', 'Canvas', 'Tableau Next (MCP)', 'Salesforce'],
+    diagram: 'preCallBrief',
+  },
+  {
     tag: 'Agentic / MCP',
     title: 'Conversational Slack Analytics',
     need: "Users wanted channel analytics quickly and in natural language. The customer didn't want to grant analytics roles to everyone who asks, and Slack's built-in analytics only show above certain thresholds, such as channels over 50 people.",
