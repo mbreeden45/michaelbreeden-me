@@ -77,13 +77,13 @@ export const customerProjects: CustomerProject[] = [
   {
     tag: 'Live Event Tech',
     title: 'Live Event Engagement App',
-    need: "Two Salesforce teams run contests on different platforms across a motorsport season, and needed trivia for seven people with Slack involved. Building it as a Slack app was my idea, from a single 30-minute call.",
+    need: "An internal team needed live trivia for an upcoming event, with Slack involved. Building it as a Slack app was my idea, from a single 30-minute call.",
     built:
       'A real-time trivia app with live scoring, anti-cheat timing safeguards, and a full decision log and risk assessment. Three iterations with the team so far.',
-    why: 'Turned a passing comment on one call into a working app, and a way to bring Slack into contests across the season.',
+    why: 'Turned a passing comment on one call into a working app, and a way to bring Slack into live events.',
     timeLabel: 'Call to demo',
     buildTime: 'Same day',
-    status: 'Event end of November',
+    status: 'Live event upcoming',
     stack: ['Node.js', 'Slack Bolt', 'Block Kit'],
     diagram: 'trivia',
   },
