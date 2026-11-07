@@ -140,6 +140,7 @@ export const badges: string[] = [
   'Salesforce Certified Administrator',
   'Salesforce Certified Slack Consultant',
   'Salesforce Certified AI Associate (2025)',
+  'Claude Certified Associate: Foundations (Anthropic, 2026)',
   'In progress: Agentforce Specialist exam (EOY 2026)',
 ]
 
