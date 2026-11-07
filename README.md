@@ -50,11 +50,11 @@ here so they can be worked in:
     capability names, not real query examples with client data)
   - The MCP tool list at a high level, to expand the diagram beyond "Engine"
   - Anything about the test coverage or documentation worth a specific callout
-- **Live Event Engagement App (motorsport trivia)**
+- **Live Event Engagement App (trivia)**
   - How the anti-cheat timing safeguard actually works, described generically (the
     technique, not client-specific implementation detail)
   - The scoring logic at a high level
-  - Current status from Creative Technology's rollout process, so the copy stays accurate
+  - Current rollout status, so the copy stays accurate
 
 ### Other deferred items
 
