@@ -45,8 +45,8 @@ function Box({
           textAnchor="middle"
           fontFamily="Space Mono"
           fontSize="7"
-          fill="var(--color-ink-soft)"
-          className="dark:fill-[#8a8a8a]"
+          fill={accent ? 'var(--color-paper)' : 'var(--color-ink-soft)'}
+          className={accent ? '' : 'dark:fill-[#8a8a8a]'}
         >
           {sub}
         </text>
@@ -149,7 +149,7 @@ function PreCallBriefDiagram() {
     <svg viewBox="0 0 300 150" className="w-full">
       <ArrowheadDefs />
       <Box x={8} y={22} w={76} h={36} label="FORM" sub="Workflow Builder" />
-      <Box x={106} y={20} w={90} h={40} label="SKILL" sub="Slackbot · confirms acct" accent />
+      <Box x={106} y={20} w={90} h={40} label="SKILL" sub="in Slackbot" accent />
       <Box x={218} y={22} w={74} h={36} label="TABLEAU" sub="Next, via MCP" />
       <Box x={106} y={88} w={90} h={36} label="SALESFORCE" sub="account · contacts" />
       <Box x={218} y={88} w={74} h={36} label="CANVAS" sub="pre-call brief" />
