@@ -23,6 +23,18 @@ npm run build
 
 The build also pre-renders the page into `dist/index.html` (`src/entry-server.tsx` + `scripts/prerender.mjs`) so crawlers and link previews see real content without running JavaScript. Outputs a static site to `dist/`, ready to deploy to any static host (Hostinger, Vercel, Netlify, GitHub Pages, etc.).
 
+## Site agent
+
+`api/chat.ts` is a Vercel Function that answers questions about the work using Gemini, grounded only in `/brief.md`. The brief is generated at build time from the same data files that render the site (`src/data/brief.ts`), so the agent and the pages cannot disagree. It has an origin check, per-client rate limit, daily cap, input limits, a banned-name filter on replies, and model fallback on 5xx (never on 429), mirroring the Gluten-Free Beer Index sommelier.
+
+| Variable | Purpose |
+|---|---|
+| `GEMINI_API_KEY` | Switches the agent on. Without it the section tells visitors the agent is off and shows the email. |
+| `GEMINI_MODEL` | Optional primary model (defaults to `gemini-3.5-flash-lite`, with fallbacks). |
+| `AGENT_DAILY_CAP` | Optional per-instance daily request cap (default 400). |
+
+`GET /api/chat` is a health check (key configured, brief readable). `npm run test:agent` runs the function against a local mock of Gemini with no key or network.
+
 ## Editing content
 
 Project cards, Trailhead stats, certifications, and skills all live in [`src/data/projects.ts`](src/data/projects.ts) — edit that file to update content without touching component code.

@@ -123,22 +123,28 @@ function TriviaDiagram() {
   )
 }
 
-function DesktopControlDiagram() {
+function AsyncJobsDiagram() {
   return (
-    <svg viewBox="0 0 300 150" className="w-full">
+    <svg viewBox="0 0 300 195" className="w-full">
       <ArrowheadDefs />
-      <Box x={8} y={22} w={76} h={36} label="SLACKBOT" sub="skill: try first" />
-      <Box x={106} y={20} w={90} h={40} label="MCP SERVER" sub="allowlisted actions" accent />
-      <Box x={218} y={22} w={74} h={36} label="macOS" sub="Finder · Focus" />
-      <Box x={8} y={88} w={76} h={36} label="TICKET" sub="human support" />
-      <Arrow x1={84} y1={40} x2={106} y2={40} />
-      <Arrow x1={196} y1={40} x2={218} y2={40} />
-      <Arrow x1={46} y1={58} x2={46} y2={88} />
-      <text x={92} y={110} fontFamily="Space Mono" fontSize="7" fill="var(--color-ink-soft)" className="dark:fill-[#8a8a8a]">
-        not resolved? hand off to a person
+      <Box x={6} y={8} w={62} h={34} label="SLACKBOT" sub="verified call" />
+      <Box x={98} y={8} w={76} h={34} label="LAMBDA" sub="MCP server" accent />
+      <Box x={206} y={8} w={88} h={34} label="SQS" sub="job queue" />
+      <Box x={98} y={68} w={76} h={34} label="DYNAMODB" sub="job state" />
+      <Box x={206} y={68} w={88} h={34} label="MAC WORKER" sub="outbound only" accent />
+      <Box x={6} y={128} w={62} h={34} label="PLUGIN" sub="allowlist" />
+      <Box x={98} y={128} w={76} h={34} label="CODEX" sub="read-only" />
+      <Arrow x1={68} y1={25} x2={98} y2={25} />
+      <Arrow x1={174} y1={25} x2={206} y2={25} />
+      <Arrow x1={250} y1={42} x2={250} y2={68} />
+      <Arrow x1={136} y1={42} x2={136} y2={68} />
+      <Arrow x1={206} y1={96} x2={174} y2={134} />
+      <Arrow x1={98} y1={145} x2={68} y2={145} />
+      <text x={150} y={180} textAnchor="middle" fontFamily="Space Mono" fontSize="7" fill="var(--color-ink-soft)" className="dark:fill-[#8a8a8a]">
+        the Mac only connects outward: no tunnel, no open ports
       </text>
-      <text x={150} y={142} textAnchor="middle" fontFamily="Space Mono" fontSize="7" fill="var(--color-ink-soft)" className="dark:fill-[#8a8a8a]">
-        the AI picks the tool; only allowlisted actions ever run
+      <text x={150} y={190} textAnchor="middle" fontFamily="Space Mono" fontSize="7" fill="var(--color-ink-soft)" className="dark:fill-[#8a8a8a]">
+        reply returns to Slack with the Codex session ID
       </text>
     </svg>
   )
@@ -168,7 +174,7 @@ const DIAGRAMS = {
   caseSync: CaseSyncDiagram,
   analytics: AnalyticsDiagram,
   trivia: TriviaDiagram,
-  desktopControl: DesktopControlDiagram,
+  asyncJobs: AsyncJobsDiagram,
   preCallBrief: PreCallBriefDiagram,
 }
 

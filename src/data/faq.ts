@@ -25,7 +25,7 @@ export const faq: Faq[] = [
   },
   {
     q: 'How does Michael approach guardrails for AI?',
-    a: 'Michael grounds answers in a known source, says when it cannot answer, verifies results, and hands off to a person. The Gluten-Free Beer Index sommelier only recommends listed beers, quotes the test evidence and never calls a beer safe. In the Slackbot plugin proof, only allowlisted actions can run and unresolved problems go to a human ticket.',
+    a: 'Michael grounds answers in a known source, says when it cannot answer, verifies results, and hands off to a person. The Gluten-Free Beer Index sommelier only recommends listed beers, quotes the test evidence and never calls a beer safe. In the Slackbot plugin proof, Codex runs read-only against a closed allowlist of ten actions, and out-of-scope requests are rejected and logged.',
   },
   {
     q: 'What is Customer Zero?',
