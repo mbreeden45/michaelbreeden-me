@@ -16,6 +16,14 @@ export const faq: Faq[] = [
     a: 'Five recent proofs of concept: a Slackbot-to-customer-plugin proof over MCP, a conversational analytics MCP server, a Slack–Salesforce case sync, a Slackbot + Tableau Next pre-call brief, and a live-event trivia app. Three of them went from first call to working demo the same day.',
   },
   {
+    q: 'What AI tools and models does Michael use?',
+    a: 'Claude Code and Cursor to build, Codex for the plugin work, Gemini as the everyday chat, Muse as a personal assistant, and Slackbot to start the work day. Michael is familiar with Claude, Gemini and the Codex lineup, prefers Opus when choosing freely, and on personal projects picks a cheaper, faster model almost every time.',
+  },
+  {
+    q: 'How does Michael make sure AI-built work can be trusted?',
+    a: 'Discovery first, then a lot of testing, and agents write test cases too. Michael\u2019s biggest lesson was that starting too fast turns the first idea into the foundation, so more time goes into discovery before building.',
+  },
+  {
     q: 'What is MCP, and why does it matter for Slackbot?',
     a: 'MCP (Model Context Protocol) is an open standard that lets AI assistants call tools and read data in other systems. Michael uses it so Slackbot can reach a customer’s own plugin, analytics or Tableau Next data instead of only answering from what it already knows.',
   },

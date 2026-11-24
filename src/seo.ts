@@ -1,3 +1,4 @@
+import { aiQa } from './data/ai'
 import { experience } from './data/experience'
 import { faq } from './data/faq'
 import { offers } from './data/offers'
@@ -210,6 +211,14 @@ export function llmsTxt(lastmod: string): string {
   lines.push('## Common questions')
   lines.push('')
   for (const f of faq) {
+    lines.push(`### ${f.q}`)
+    lines.push('')
+    lines.push(f.a)
+    lines.push('')
+  }
+  lines.push('## How Michael uses AI')
+  lines.push('')
+  for (const f of aiQa) {
     lines.push(`### ${f.q}`)
     lines.push('')
     lines.push(f.a)

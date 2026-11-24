@@ -72,7 +72,7 @@ export default function AskMichael() {
       <TornDivider />
       <div className="mx-auto max-w-4xl px-6 pt-8 pb-16">
         <SectionHeading
-          index="07"
+          index="08"
           title="Ask the agent"
           subtitle="It answers only from a written brief, says so when it does not know, and never names customers. It is an AI and can be wrong."
         />
