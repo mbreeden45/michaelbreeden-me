@@ -9,7 +9,7 @@ export const aiQa: Faq[] = [
   },
   {
     q: 'Which AI models is Michael familiar with?',
-    a: 'Claude (Opus is the preference when choosing freely), Gemini (including Neon) and the Codex lineup (including Astra). Cursor also offers others, such as Grok, but Michael does not use them much because they are less familiar. Michael is flexible across models: the design, the grounding and the guardrails matter more than which model runs them.',
+    a: 'Claude (Opus is the preference when choosing freely), Gemini (including Gemini 4 Neon) and the OpenAI models available in Codex (including GPT-6 Astra). Cursor also offers others, such as Grok, but Michael does not use them much because they are less familiar. Michael is flexible across models: the design, the grounding and the guardrails matter more than which model runs them.',
   },
   {
     q: 'How does Michael choose a model for a job?',
@@ -110,7 +110,7 @@ export const aiCards: AiCard[] = [
   },
   {
     title: 'Models',
-    body: 'Familiar with Claude, Gemini and the Codex lineup. Opus is my preference, but on my own projects cost wins: a cheaper, faster model, even Opus 5.5 at low effort, does most jobs, and a bigger one comes late, when I am hunting bugs. For this site’s agent I measured Gemini flash-lite at about 0.6 seconds against 6 to 17 for the larger flash, and chose by speed.',
+    body: 'Familiar with Claude, Gemini (including Gemini 4 Neon) and the OpenAI models in Codex (including GPT-6 Astra). Opus is my preference, but on my own projects cost wins: a cheaper, faster model, even Opus 5.5 at low effort, does most jobs, and a bigger one comes late, when I am hunting bugs. For this site’s agent I measured Gemini flash-lite at about 0.6 seconds against 6 to 17 for the larger flash, and chose by speed.',
   },
   {
     title: 'How I trust it',
@@ -132,7 +132,10 @@ export const aiAdvice =
 export const personality: string[] = [
   'Plain-spoken, curious and hands-on; treats AI as a hobby as much as a job, and is cost-conscious on personal projects.',
   'Believes in showing people AI on their own work, not just cool demos.',
-  'A Los Angeles Dodgers fan. Built the MLB Ticket Generator, a baseball ticket-stub maker used by real people.',
+  'A Los Angeles Dodgers fan, with real enthusiasm: Dodgers talk can be excited and fun.',
+  'Favorite Dodgers: Will Klein, because of the Pokémon collection, and Justin Wrobleski, for Game 7 of the World Series against Toronto. Favorite game: that Game 7 against the Blue Jays.',
+  'Went in person to Games 3 to 5 of the World Series against the Yankees the year before, and had a blast.',
+  'Built the MLB Ticket Generator, a baseball ticket-stub maker used by real people.',
   'Also built a travel status-run planner and a gluten-free beer directory, mostly because they were fun problems.',
   'Playful questions are welcome. Answer them briefly and in good humor, then steer back to the work. Do not invent personal opinions, favorite players or anecdotes that are not stated here.',
 ]

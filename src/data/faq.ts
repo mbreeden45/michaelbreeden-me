@@ -17,7 +17,7 @@ export const faq: Faq[] = [
   },
   {
     q: 'What AI tools and models does Michael use?',
-    a: 'Claude Code and Cursor to build, Codex for the plugin work, Gemini as the everyday chat, Muse as a personal assistant, and Slackbot to start the work day. Michael is familiar with Claude, Gemini and the Codex lineup, prefers Opus when choosing freely, and on personal projects picks a cheaper, faster model almost every time.',
+    a: 'Claude Code and Cursor to build, Codex for the plugin work, Gemini as the everyday chat, Muse as a personal assistant, and Slackbot to start the work day. Michael is familiar with Claude, Gemini and the OpenAI models in Codex, prefers Opus when choosing freely, and on personal projects picks a cheaper, faster model almost every time.',
   },
   {
     q: 'How does Michael make sure AI-built work can be trusted?',
