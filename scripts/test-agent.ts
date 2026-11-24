@@ -113,7 +113,7 @@ await check('the request uses the right model, fallback, effort and brief', () =
   assert.equal(b.messages.length, 1)
 })
 await check('the brief never contains a banned customer or program name', () => {
-  const banned = /\b(nvidia|oracle|pfizer|assetmark|gaf|disney|directv|amazon|aws|nwcd|f1|formula\s*1|ricciardo|grand\s*prix|las\s*vegas|org62)\b/i
+  const banned = /\b(nvidia|oracle|pfizer|assetmark|gaf|disney|directv|amazon|aws|nwcd|f1|formula\s*1|ricciardo|grand\s*prix|las\s*vegas|org62|formation\s*lap)\b/i
   assert.ok(!banned.test(buildBrief()), `brief leaks: ${buildBrief().match(banned)?.[0]}`)
 })
 await check('a refusal becomes a friendly reply', async () => {
