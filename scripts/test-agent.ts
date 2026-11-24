@@ -115,6 +115,8 @@ await check('the request uses the default model, low thinking, a token cap and t
   assert.ok(sys.includes('<BRIEF>') && sys.includes('slack-salesforce-case-sync'))
   assert.ok(sys.includes(buildBrief().slice(0, 500)), 'grounded in the fetched brief')
   assert.deepEqual(c.body.contents.map((m) => m.role), ['user'])
+  assert.ok(sys.includes('PERSONALITY AND TONE') && sys.includes('Dodgers'), 'personality is in the grounding')
+  assert.ok(sys.includes('Claude Code and Cursor'), 'AI practice is in the grounding')
 })
 await check('history is sent with Gemini roles (user/model)', async () => {
   calls = []

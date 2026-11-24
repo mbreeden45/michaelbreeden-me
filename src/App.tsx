@@ -6,6 +6,7 @@ import Experience from './components/Experience'
 import BeyondWork from './components/BeyondWork'
 import Credentials from './components/Credentials'
 import Skills from './components/Skills'
+import AiPractice from './components/AiPractice'
 import AskMichael from './components/AskMichael'
 import Faq from './components/Faq'
 import Footer from './components/Footer'
@@ -25,6 +26,7 @@ function Home() {
         <BeyondWork />
         <Credentials />
         <Skills />
+        <AiPractice />
         <AskMichael />
         <Faq />
       </main>

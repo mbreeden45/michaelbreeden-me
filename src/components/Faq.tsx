@@ -7,7 +7,7 @@ export default function Faq() {
     <section id="faq" className="pt-4">
       <TornDivider />
       <div className="mx-auto max-w-4xl px-6 pt-8 pb-16">
-        <SectionHeading index="08" title="Common questions" subtitle="The questions people actually ask, answered plainly." />
+        <SectionHeading index="09" title="Common questions" subtitle="The questions people actually ask, answered plainly." />
         <div className="grid gap-3">
           {faq.map((f) => (
             <details

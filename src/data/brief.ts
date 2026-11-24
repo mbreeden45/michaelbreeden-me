@@ -1,3 +1,4 @@
+import { aiQa, personality } from './ai'
 import { experience } from './experience'
 import { faq } from './faq'
 import { offers } from './offers'
@@ -50,6 +51,12 @@ export function buildBrief(): string {
 
   out.push('\n# COMMON QUESTIONS')
   for (const f of faq) out.push(`Q: ${f.q}\nA: ${f.a}`)
+
+  out.push('\n# HOW MICHAEL USES AI (tools, models, habits and opinions, as interview questions)')
+  for (const f of aiQa) out.push(`Q: ${f.q}\nA: ${f.a}`)
+
+  out.push('\n# PERSONALITY AND TONE')
+  for (const p of personality) out.push(`- ${p}`)
 
   return out.join('\n')
 }
