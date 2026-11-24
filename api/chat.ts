@@ -5,8 +5,10 @@ import { GoogleGenAI, ThinkingLevel } from '@google/genai'
 // (instead of importing the data) keeps this function self-contained and the grounding inspectable.
 // Set GEMINI_API_KEY in the Vercel project to switch it on (the same key the beer index sommelier uses).
 
-// Newest models are often capacity-limited; fall through the list on 5xx (never on 429, which only burns quota).
-const MODELS = [process.env.GEMINI_MODEL, 'gemini-3.5-flash-lite', 'gemini-3.5-flash', 'gemini-3-flash-preview', 'gemini-3.8-flash'].filter(
+// Newest models are often capacity-limited, so fall through the list on 5xx, timeouts and 404 (never on 429, which only
+// burns quota). Ordered fast-first: measured for this key, the lite models answer in under a second, while
+// gemini-3.5-flash takes 6-17s and gemini-3.8-flash is often overloaded, so the slow ones come last or not at all.
+const MODELS = [process.env.GEMINI_MODEL, 'gemini-3.5-flash-lite', 'gemini-flash-lite-latest', 'gemini-3-flash-preview', 'gemini-3.5-flash'].filter(
   (m, i, a): m is string => !!m && a.indexOf(m) === i,
 )
 const MAX_MESSAGES = 10
@@ -36,6 +38,8 @@ let client: GoogleGenAI | undefined
 const getClient = () =>
   (client ??= new GoogleGenAI({
     apiKey: process.env.GEMINI_API_KEY,
+    // Preview models are only served on v1beta; the SDK's default version returns 404 for them.
+    apiVersion: 'v1beta',
     ...(process.env.GEMINI_BASE_URL ? { httpOptions: { baseUrl: process.env.GEMINI_BASE_URL } } : {}),
   }))
 
