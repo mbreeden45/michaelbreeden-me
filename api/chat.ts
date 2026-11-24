@@ -18,7 +18,7 @@ const RATE_WINDOW_MS = 10 * 60_000
 const RATE_MAX = 12
 const DAILY_CAP = Number(process.env.AGENT_DAILY_CAP || 400)
 
-const EMAIL = 'michaelcbreeden@gmail.com'
+const EMAIL = 'michael@michaelbreeden.me'
 
 // Customer and program names must never appear in a reply, even if the model infers one.
 const BANNED = /\b(nvidia|oracle|pfizer|assetmark|gaf|disney|directv|amazon|nwcd|f1|formula\s*1|ricciardo|grand\s*prix|las\s*vegas|org62|formation\s*lap)\b/i

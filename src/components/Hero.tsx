@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import headshot from '../assets/headshot.webp'
+import { EMAIL } from '../data/site'
 
 export default function Hero() {
   return (
@@ -48,7 +49,7 @@ export default function Hero() {
               See what I've built
             </a>
             <a
-              href="mailto:michaelcbreeden@gmail.com"
+              href={`mailto:${EMAIL}`}
               className="border-2 border-[var(--color-ink)] px-5 py-2.5 text-sm font-bold uppercase tracking-wide transition hover:bg-[var(--color-ink)] hover:text-[var(--color-paper)] dark:border-[#ececec] dark:text-[#ececec] dark:hover:bg-[#ececec] dark:hover:text-[var(--color-ink)]"
             >
               Get in touch
