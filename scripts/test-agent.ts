@@ -10,7 +10,18 @@ interface Seen {
 }
 let seen: Seen | undefined
 
+let briefOk = true
+const { buildBrief } = await import('../src/data/brief.ts')
+
 const mock = createServer((req, res) => {
+  if (req.method === 'GET' && req.url === '/brief.md') {
+    if (!briefOk) {
+      res.writeHead(404)
+      return res.end('nope')
+    }
+    res.writeHead(200, { 'Content-Type': 'text/markdown' })
+    return res.end(`${buildBrief()}\n`)
+  }
   let raw = ''
   req.on('data', (c) => (raw += c))
   req.on('end', () => {
@@ -40,10 +51,10 @@ const port = (mock.address() as AddressInfo).port
 
 process.env.ANTHROPIC_BASE_URL = `http://127.0.0.1:${port}`
 process.env.ANTHROPIC_API_KEY = 'test-key'
+process.env.BRIEF_URL = `http://127.0.0.1:${port}/brief.md`
 delete process.env.SITE_AGENT_MODEL
 
 const { default: handler } = await import('../api/chat.ts')
-const { buildBrief } = await import('../src/data/brief.ts')
 
 let n = 0
 async function call(opts: { method?: string; origin?: string; ip?: string; body?: unknown; raw?: string }) {
@@ -62,7 +73,16 @@ const ask = (q: string, ip = '2.2.2.2') => call({ ip, body: { messages: [{ role:
 const check = (name: string, fn: () => void | Promise<void>) =>
   Promise.resolve(fn()).then(() => console.log(`PASS ${++n}. ${name}`))
 
-await check('GET is rejected with 405', async () => assert.equal((await call({ method: 'GET' })).status, 405))
+await check('GET is a health check that loads the brief and reports configuration', async () => {
+  const r = await call({ method: 'GET' })
+  assert.equal(r.status, 200)
+  const d = r.data as unknown as { ok: boolean; configured: boolean; briefChars: number }
+  assert.equal(d.ok, true)
+  assert.equal(d.configured, true)
+  assert.ok(d.briefChars > 5000)
+  assert.ok(!JSON.stringify(d).includes('test-key'))
+})
+await check('other methods are rejected with 405', async () => assert.equal((await call({ method: 'PUT' })).status, 405))
 await check('a foreign Origin is rejected with 403', async () =>
   assert.equal((await call({ origin: 'https://evil.example', body: { messages: [{ role: 'user', content: 'hi' }] } })).status, 403))
 await check('the site origin is accepted', async () =>
@@ -119,6 +139,26 @@ await check('a client is rate limited after 12 requests in the window', async ()
   for (let i = 0; i < 14; i++) codes.push((await ask('hello', '9.9.9.9')).status)
   assert.deepEqual(codes.slice(0, 12).every((c) => c === 200), true)
   assert.equal(codes[12], 429)
+})
+await check('the model is grounded in the fetched brief, not anything else', () => {
+  const b = seen!.body as { system: { text: string }[] }
+  assert.ok(b.system[0].text.includes(buildBrief().slice(0, 500)))
+})
+await check('an unreadable brief returns 502 without calling the model', async () => {
+  // a fresh module instance has no cached brief; simulate by importing with a cache-busting query
+  const fresh = (await import('../api/chat.ts?fresh=1')).default
+  briefOk = false
+  seen = undefined
+  const res = await fresh.fetch(
+    new Request('https://www.michaelbreeden.me/api/chat', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json', 'x-forwarded-for': '7.7.7.7' },
+      body: JSON.stringify({ messages: [{ role: 'user', content: 'hello' }] }),
+    }),
+  )
+  briefOk = true
+  assert.equal(res.status, 502)
+  assert.equal(seen, undefined)
 })
 await check('a missing API key returns 503 not_configured', async () => {
   const key = process.env.ANTHROPIC_API_KEY

@@ -1,8 +1,9 @@
 import Anthropic from '@anthropic-ai/sdk'
-import { buildBrief } from '../src/data/brief'
 
-// The site agent: answers questions about Michael's work using only the written brief generated from
-// the site's own data files. Set ANTHROPIC_API_KEY in the Vercel project to switch it on.
+// The site agent: answers questions about Michael's work using only /brief.md, the written brief that
+// the site build generates from the same data files that render the pages. Reading the published file
+// (instead of importing the data) keeps this function self-contained and the grounding inspectable.
+// Set ANTHROPIC_API_KEY in the Vercel project to switch it on.
 
 const MODEL = process.env.SITE_AGENT_MODEL || 'claude-opus-5-5'
 const MAX_MESSAGES = 10
@@ -31,8 +32,27 @@ Rules:
 let client: Anthropic | undefined
 const getClient = () => (client ??= new Anthropic({ maxRetries: 1, timeout: 30_000 }))
 
-let briefText: string | undefined
-const system = () => (briefText ??= `${SYSTEM_RULES}\n\n<BRIEF>\n${buildBrief()}\n</BRIEF>`)
+const CANONICAL_ORIGIN = 'https://www.michaelbreeden.me'
+const BRIEF_TTL_MS = 60 * 60_000
+let brief: { text: string; at: number } | undefined
+
+function briefUrl(request: Request): string {
+  if (process.env.BRIEF_URL) return process.env.BRIEF_URL
+  const host = new URL(request.url).host
+  const own = host === 'www.michaelbreeden.me' || host === 'michaelbreeden.me' || host === process.env.VERCEL_URL || host === process.env.VERCEL_BRANCH_URL
+  return `${own ? new URL(request.url).origin : CANONICAL_ORIGIN}/brief.md`
+}
+
+async function getBrief(request: Request): Promise<string> {
+  if (brief && Date.now() - brief.at < BRIEF_TTL_MS) return brief.text
+  const res = await fetch(briefUrl(request), { signal: AbortSignal.timeout(8000) })
+  const text = res.ok ? await res.text() : ''
+  if (!text.startsWith('# ABOUT') || text.length < 1000) throw new Error(`brief unavailable (${res.status})`)
+  brief = { text, at: Date.now() }
+  return text
+}
+
+const system = (b: string) => `${SYSTEM_RULES}\n\n<BRIEF>\n${b}\n</BRIEF>`
 
 const hits = new Map<string, number[]>()
 let day = ''
@@ -111,7 +131,17 @@ function parseMessages(body: unknown): Msg[] | null {
 
 export default {
   async fetch(request: Request): Promise<Response> {
-    if (request.method !== 'POST') return json({ error: 'method_not_allowed' }, 405, { Allow: 'POST' })
+    if (request.method === 'GET') {
+      // Health check: is the key set, and can the brief be read? Reveals nothing else.
+      let briefChars = 0
+      try {
+        briefChars = (await getBrief(request)).length
+      } catch {
+        briefChars = 0
+      }
+      return json({ ok: briefChars > 0, configured: Boolean(process.env.ANTHROPIC_API_KEY), briefChars, model: MODEL })
+    }
+    if (request.method !== 'POST') return json({ error: 'method_not_allowed' }, 405, { Allow: 'GET, POST' })
     if (!originAllowed(request)) return json({ error: 'forbidden' }, 403)
     if (!process.env.ANTHROPIC_API_KEY) return json({ error: 'not_configured' }, 503)
 
@@ -126,6 +156,14 @@ export default {
 
     if (rateLimited(clientKey(request)) || overDailyCap()) return json({ error: 'rate_limited' }, 429)
 
+    let grounding: string
+    try {
+      grounding = await getBrief(request)
+    } catch (e) {
+      console.error('agent: could not load brief', e instanceof Error ? e.message : '')
+      return json({ error: 'upstream' }, 502)
+    }
+
     try {
       const response = await getClient().beta.messages.create({
         model: MODEL,
@@ -133,7 +171,7 @@ export default {
         betas: ['server-side-fallback-2026-07-01'],
         fallbacks: 'default',
         output_config: { effort: 'low' },
-        system: [{ type: 'text', text: system(), cache_control: { type: 'ephemeral' } }],
+        system: [{ type: 'text', text: system(grounding), cache_control: { type: 'ephemeral' } }],
         messages,
       })
 
