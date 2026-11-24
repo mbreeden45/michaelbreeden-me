@@ -1,6 +1,7 @@
 import type { DiagramKey } from '../components/ArchDiagram'
 
 export interface CustomerProject {
+  slug: string
   tag: string
   title: string
   need: string
@@ -11,6 +12,10 @@ export interface CustomerProject {
   status: string
   stack: string[]
   diagram: DiagramKey
+  /** Step-by-step description for the project's own page. */
+  howItWorks: string[]
+  /** What was learned, what is still open, and what is deliberately not claimed. */
+  notes: string[]
 }
 
 export interface PersonalProject {
@@ -23,6 +28,7 @@ export interface PersonalProject {
 // Ordered by relevance to deployment / forward-deployed work.
 export const customerProjects: CustomerProject[] = [
   {
+    slug: 'slackbot-codex-plugin-mcp',
     tag: 'Agentic / MCP · Proof of concept',
     title: 'Slackbot ↔ Codex Plugin via MCP',
     need: 'A major enterprise software company had built a Codex plugin and wanted it usable from Slack.',
@@ -34,8 +40,19 @@ export const customerProjects: CustomerProject[] = [
     status: 'Active sales cycle',
     stack: ['Node.js', 'MCP (stdio + HTTP)', 'Slackbot skill', 'Bash'],
     diagram: 'desktopControl',
+    howItWorks: [
+      'A minimal stand-in plugin mimics the customer\'s Codex plugin, so the proof runs without touching their code.',
+      'An MCP server (stdio and HTTP) exposes a short allowlist of terminal actions, for example Finder and Focus controls on a Mac.',
+      'A Slackbot skill tells Slackbot to try the action instead of declining, check that the problem is resolved, and hand off to a human ticket if it is not.',
+      'The model chooses which tool to call, but only allowlisted actions can ever run.',
+    ],
+    notes: [
+      'Both the plugin and a small Slack app using MCP worked in the demo, with no measurable latency difference compared with using Codex directly.',
+      'It is a demo run locally, not a production deployment, and there are no usage or adoption numbers.',
+    ],
   },
   {
+    slug: 'slackbot-tableau-next-pre-call-brief',
     tag: 'Agentic / MCP · Proof of concept',
     title: 'Slackbot + Tableau Next Pre-Call Brief',
     need: "A manufacturer's field sales reps wanted a customer brief before every meeting without hunting through dashboards and records: account performance, product mix, and open pipeline in one place.",
@@ -47,8 +64,21 @@ export const customerProjects: CustomerProject[] = [
     status: 'Discovery',
     stack: ['Slackbot skill', 'Workflow Builder', 'Canvas', 'Tableau Next (MCP)', 'Salesforce'],
     diagram: 'preCallBrief',
+    howItWorks: [
+      'With the customer\'s sales operations, enablement and CRM leads, I scoped three workflows: the pre-call brief, a customer-facing deck, and mobile data capture.',
+      'A Workflow Builder form passes structured inputs to Slackbot, so the brief generates without back-and-forth.',
+      'A Slackbot skill confirms the account in Salesforce and matches contacts to that account\'s contact records so duplicates are not created.',
+      'The skill queries Tableau Next semantic models through MCP and builds a standardized canvas with a contents list.',
+      'For handoff, a build-approach document covers entry criteria, risks and tracking options, and I answered the customer\'s admin questions on Slackbot permissions by Salesforce object.',
+    ],
+    notes: [
+      'Testing against real Salesforce data surfaced exact-name matching, empty-result and canvas-size limits; each was designed around.',
+      'Tableau dashboards did not yet embed in a canvas from a workflow, and the underlying data model was still being built.',
+      'It is a proof of concept in discovery: no production launch, adoption data or measured business result is claimed.',
+    ],
   },
   {
+    slug: 'conversational-slack-analytics-mcp',
     tag: 'Agentic / MCP',
     title: 'Conversational Slack Analytics',
     need: "Users wanted channel analytics quickly and in natural language. The customer didn't want to grant analytics roles to everyone who asks, and Slack's built-in analytics only show above certain thresholds, such as channels over 50 people.",
@@ -60,8 +90,18 @@ export const customerProjects: CustomerProject[] = [
     status: 'Active sales cycle',
     stack: ['Node.js', 'MCP', 'Slack Bolt SDK'],
     diagram: 'analytics',
+    howItWorks: [
+      'A custom Slack app with slash commands and a live dashboard reads channel activity through one engine.',
+      'The same engine is exposed as an MCP server, so Slackbot answers the same analytics questions in plain language.',
+      'Nobody needs an analytics role, and answers are not held back by the size thresholds in built-in analytics, such as channels over 50 people.',
+    ],
+    notes: [
+      'Built and demoed the same day, with automated tests and documented scope.',
+      'It is a proof of concept, so there are no usage or adoption figures to report yet.',
+    ],
   },
   {
+    slug: 'slack-salesforce-case-sync',
     tag: 'Enterprise Integration',
     title: 'Slack ↔ Salesforce Case Sync',
     need: "One of the most valuable technology companies in the world wanted its customers to open Cases and use Case Comments in a Slack Connect channel, where they already work. Case Comments live in a custom object, so the out-of-the-box integration doesn't work, and Salesforce Channels don't work with Slack Connect.",
@@ -73,8 +113,19 @@ export const customerProjects: CustomerProject[] = [
     status: 'Security and legal review',
     stack: ['Node.js', 'Slack Bolt', 'jsforce'],
     diagram: 'caseSync',
+    howItWorks: [
+      'I showed the customer what works out of the box first, then built only what was missing.',
+      'A sync service links a Slack Connect thread to a Salesforce Case in both directions, in real time (Node.js, Slack Bolt, jsforce).',
+      'Case Comments live in a custom object, which is why the out-of-the-box integration does not cover this need.',
+      'A privacy gate keeps internal notes out of the customer-facing channel.',
+    ],
+    notes: [
+      'Discovery took about four weeks; the build itself took a day.',
+      'The work is now in security and legal review. No production launch or customer results are claimed.',
+    ],
   },
   {
+    slug: 'live-event-trivia-slack-app',
     tag: 'Live Event Tech',
     title: 'Live Event Engagement App',
     need: "An internal team needed live trivia for an upcoming event, with Slack involved. Building it as a Slack app was my idea, from a single 30-minute call.",
@@ -86,6 +137,15 @@ export const customerProjects: CustomerProject[] = [
     status: 'Live event upcoming',
     stack: ['Node.js', 'Slack Bolt', 'Block Kit'],
     diagram: 'trivia',
+    howItWorks: [
+      'Players answer in Slack through Block Kit messages, and a trivia engine scores them in real time with a live leaderboard.',
+      'Anti-cheat timing safeguards validate answer timing on the server instead of trusting the client.',
+      'A decision log and a risk assessment record the choices and open risks for whoever builds the production version.',
+    ],
+    notes: [
+      'Three iterations with the team so far, built as a feasibility demo; a production build would be done by an engineering team.',
+      'No attendance or engagement numbers are claimed.',
+    ],
   },
 ]
 
@@ -95,7 +155,7 @@ export const personalProjects: PersonalProject[] = [
     description:
       "A directory of about 240 gluten-free and low-gluten beers with the home-kit test results found for each, since \"gluten-free\" beer means four different things. Includes a Gemini-powered sommelier chat grounded in the catalog: it only recommends listed beers, quotes the test evidence, and never calls a beer \"safe.\" Built in a day with Claude.",
     stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Gemini API'],
-    demoUrl: 'https://gf-beer-index.vercel.app',
+    demoUrl: 'https://gf-beer.michaelbreeden.me',
   },
   {
     title: 'MLB Ticket Generator',

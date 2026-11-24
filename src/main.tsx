@@ -5,9 +5,10 @@ import './index.css'
 import App from './App.tsx'
 
 const root = document.getElementById('root')!
+const path = window.location.pathname.replace(/\/+$/, '') || '/'
 const app = (
   <StrictMode>
-    <App />
+    <App path={path} />
   </StrictMode>
 )
 

@@ -8,7 +8,7 @@ export default function Skills() {
       <TornDivider />
       <div className="mx-auto max-w-4xl px-6 pt-8 pb-16">
         <SectionHeading
-          index="05"
+          index="06"
           title="Technical skills"
           subtitle="Demonstrated through shipped applications, not just training."
         />

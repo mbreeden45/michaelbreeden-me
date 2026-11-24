@@ -43,7 +43,11 @@ export default function ProjectCard({ project, index }: { project: CustomerProje
         </span>
       </div>
 
-      <h3 className="mb-3 font-display text-lg">{project.title}</h3>
+      <h3 className="mb-3 font-display text-lg">
+        <a href={`/work/${project.slug}`} className="underline decoration-2 decoration-transparent underline-offset-4 hover:decoration-[var(--color-hot)]">
+          {project.title}
+        </a>
+      </h3>
 
       <p className="mb-4 border-l-4 border-[var(--color-hot)] pl-3 text-sm font-bold leading-snug">
         {project.why}
@@ -77,6 +81,12 @@ export default function ProjectCard({ project, index }: { project: CustomerProje
         </div>
         <ArchDiagram name={project.diagram} />
       </div>
+      <a
+        href={`/work/${project.slug}`}
+        className="mt-4 inline-block text-sm font-bold uppercase tracking-wide underline decoration-2 underline-offset-4 hover:text-[var(--color-hot)]"
+      >
+        Read the full write-up →
+      </a>
     </motion.div>
   )
 }

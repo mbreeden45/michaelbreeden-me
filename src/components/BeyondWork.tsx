@@ -8,7 +8,7 @@ export default function BeyondWork() {
       <TornDivider />
       <div className="mx-auto max-w-4xl px-6 pt-8 pb-16">
         <SectionHeading
-          index="03"
+          index="04"
           title="Beyond the day job"
           subtitle="The work that doesn't fit on a resume but says a lot about how I show up."
         />

@@ -9,7 +9,7 @@ export default function Credentials() {
       <TornDivider />
       <div className="mx-auto max-w-4xl px-6 pt-8 pb-16">
         <SectionHeading
-          index="04"
+          index="05"
           title="Platform credentials"
           subtitle="Trailhead and certification history on the Salesforce platform."
         />
