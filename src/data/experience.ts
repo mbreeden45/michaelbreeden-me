@@ -25,7 +25,7 @@ export const experience: ExperienceEntry[] = [
           'Built a Slack ↔ Salesforce case-management integration with bidirectional case/thread sync for one of the most valuable technology companies in the world; now leading it through enterprise security review toward production',
           "Built a proof of concept connecting Slackbot to Tableau Next over MCP for a manufacturing customer's sales team, and wrote the build-approach document for handoff",
           'Designed an internal Slack analytics tool for a longstanding enterprise partner, then extended it into an MCP server so the same analysis runs conversationally through Slackbot',
-          "Built a fully working live-trivia Slack app for an internal team's upcoming live event, with real-time scoring and anti-cheat safeguards — now moving toward a production build",
+          "Built a live-trivia Slack app that was used at a live event: Redis-backed state that survives restarts, fair server-clock scoring, 15 automated failure drills, and a documented paper fallback",
         ],
       },
       {

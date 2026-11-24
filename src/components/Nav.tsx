@@ -1,11 +1,11 @@
 import ThemeToggle from './ThemeToggle'
 
 const links = [
-  { href: '#work', label: 'Work' },
-  { href: '#experience', label: 'Experience' },
-  { href: '#beyond', label: 'Beyond Work' },
-  { href: '#credentials', label: 'Credentials' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/#work', label: 'Work' },
+  { href: '/#experience', label: 'Experience' },
+  { href: '/#credentials', label: 'Credentials' },
+  { href: '/#ask', label: 'Ask' },
+  { href: '/#contact', label: 'Contact' },
 ]
 
 export default function Nav() {
@@ -13,7 +13,7 @@ export default function Nav() {
     <header className="sticky top-0 z-20 border-b-2 border-[var(--color-ink)] bg-[var(--color-paper)]/95 backdrop-blur-sm dark:border-[#3a3a3a] dark:bg-[var(--color-paper-dark)]/95">
       <div className="mx-auto flex max-w-4xl items-center gap-3 px-4 py-3 sm:px-6 sm:py-3.5">
         <a
-          href="#top"
+          href="/"
           className="shrink-0 whitespace-nowrap bg-[var(--color-ink)] px-2 py-1 font-display text-sm text-[var(--color-paper)] dark:bg-[var(--color-paper)] dark:text-[var(--color-ink)]"
         >
           M. BREEDEN

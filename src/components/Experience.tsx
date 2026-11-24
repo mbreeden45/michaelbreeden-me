@@ -47,7 +47,7 @@ export default function Experience() {
       <div className="mx-auto max-w-4xl px-6 pt-8 pb-16">
         <div className="mb-8 flex flex-wrap items-end justify-between gap-3">
           <SectionHeading
-            index="02"
+            index="03"
             title="Experience"
             subtitle="10+ years of enterprise delivery, from technical training through solution architecture."
           />

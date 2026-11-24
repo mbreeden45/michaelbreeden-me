@@ -19,6 +19,11 @@ export default function Work() {
             <ProjectCard key={p.title} project={p} index={i} />
           ))}
         </div>
+        <p className="mt-8 text-sm">
+          <a href="/work" className="font-bold uppercase tracking-wide underline decoration-2 underline-offset-4 hover:text-[var(--color-hot)]">
+            See all work →
+          </a>
+        </p>
         <PersonalProjects />
       </div>
     </section>

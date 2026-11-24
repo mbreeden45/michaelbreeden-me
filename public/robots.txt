@@ -1,4 +1,6 @@
+# Answer engines and search crawlers are welcome; /llms.txt summarizes the site for them.
 User-agent: *
 Allow: /
+Disallow: /api/
 
 Sitemap: https://www.michaelbreeden.me/sitemap.xml
