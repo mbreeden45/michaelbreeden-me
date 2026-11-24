@@ -42,6 +42,7 @@ const mock = createServer((req, res) => {
     if (last.includes('[ratelimit]')) return reply(429, { error: { code: 429, message: 'quota', status: 'RESOURCE_EXHAUSTED' } })
     if (last.includes('[boom]')) return reply(500, { error: { code: 500, message: 'secret upstream detail', status: 'INTERNAL' } })
     if (last.includes('[flaky]') && model.includes('flash-lite')) return reply(503, { error: { code: 503, message: 'overloaded', status: 'UNAVAILABLE' } })
+    if (last.includes('[notfound]') && model.includes('flash-lite')) return reply(404, { error: { code: 404, message: 'model not found', status: 'NOT_FOUND' } })
     if (last.includes('[block]')) return reply(200, { promptFeedback: { blockReason: 'SAFETY' }, candidates: [] })
     if (last.includes('[banned]')) return ok([{ text: 'That was built for NVIDIA.' }])
     if (last.includes('[empty]')) return ok([{ text: '   ' }])
@@ -144,6 +145,12 @@ await check('an empty model reply is a 502', async () => assert.equal((await ask
 await check('a 5xx on the first model falls through to the next model', async () => {
   calls = []
   const r = await ask('[flaky]')
+  assert.equal(r.status, 200)
+  assert.deepEqual(calls.map((c) => c.model), ['gemini-3.5-flash-lite', 'gemini-3.5-flash'])
+})
+await check('a 404 (model unavailable to this key) falls through to the next model', async () => {
+  calls = []
+  const r = await ask('[notfound]')
   assert.equal(r.status, 200)
   assert.deepEqual(calls.map((c) => c.model), ['gemini-3.5-flash-lite', 'gemini-3.5-flash'])
 })

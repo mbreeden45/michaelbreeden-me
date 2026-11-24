@@ -172,6 +172,7 @@ export default {
     }
 
     try {
+      const deadline = Date.now() + 28_000
       const contents = messages.map((m) => ({ role: m.role === 'user' ? 'user' : 'model', parts: [{ text: m.content }] }))
       const generate = (model: string) =>
         getClient().models.generateContent({
@@ -182,7 +183,7 @@ export default {
             temperature: 0.3,
             maxOutputTokens: 1500,
             thinkingConfig: { thinkingLevel: ThinkingLevel.LOW },
-            abortSignal: AbortSignal.timeout(20_000),
+            abortSignal: AbortSignal.timeout(Math.max(3_000, Math.min(12_000, deadline - Date.now()))),
           },
         })
 
@@ -193,7 +194,8 @@ export default {
           break
         } catch (err) {
           const st = (err as { status?: number }).status
-          if (attempt >= MODELS.length - 1 || (st && st < 500)) throw err
+          // Fall through on 5xx, timeouts and 404 (a model this key cannot use); stop on 429 and other 4xx.
+          if (attempt >= MODELS.length - 1 || Date.now() > deadline || (st && st < 500 && st !== 404)) throw err
           await new Promise((r) => setTimeout(r, 300 * (attempt + 1)))
         }
       }
