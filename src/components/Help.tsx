@@ -1,6 +1,7 @@
 import { offers } from '../data/offers'
 import SectionHeading from './SectionHeading'
 import TornDivider from './TornDivider'
+import { EMAIL } from '../data/site'
 
 export default function Help() {
   return (
@@ -26,7 +27,7 @@ export default function Help() {
         </ul>
         <p className="mt-8 text-sm">
           <a
-            href="mailto:michaelcbreeden@gmail.com"
+            href={`mailto:${EMAIL}`}
             className="font-bold uppercase tracking-wide underline decoration-2 underline-offset-4 hover:text-[var(--color-hot)]"
           >
             Start a conversation →

@@ -1,4 +1,5 @@
 import TornDivider from './TornDivider'
+import { EMAIL } from '../data/site'
 
 export default function Footer() {
   return (
@@ -13,7 +14,7 @@ export default function Footer() {
           <span suppressHydrationWarning className="font-mono text-xs">© {new Date().getFullYear()} Michael Breeden</span>
           <span className="flex gap-3 font-bold uppercase tracking-wide">
             <a
-              href="mailto:michaelcbreeden@gmail.com"
+              href={`mailto:${EMAIL}`}
               className="underline decoration-2 underline-offset-4 hover:text-[var(--color-hot)]"
             >
               Email

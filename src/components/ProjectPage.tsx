@@ -1,6 +1,7 @@
 import { customerProjects } from '../data/projects'
 import ArchDiagram from './ArchDiagram'
 import PageShell from './PageShell'
+import { EMAIL } from '../data/site'
 
 export default function ProjectPage({ slug }: { slug: string }) {
   const p = customerProjects.find((x) => x.slug === slug)
@@ -82,7 +83,7 @@ export default function ProjectPage({ slug }: { slug: string }) {
         </ul>
         <p className="mt-6 text-sm">
           Want to talk about something like this?{' '}
-          <a href="mailto:michaelcbreeden@gmail.com" className="font-bold underline decoration-2 underline-offset-4 hover:text-[var(--color-hot)]">
+          <a href={`mailto:${EMAIL}`} className="font-bold underline decoration-2 underline-offset-4 hover:text-[var(--color-hot)]">
             Get in touch
           </a>{' '}
           or <a href="/#ask" className="font-bold underline decoration-2 underline-offset-4 hover:text-[var(--color-hot)]">ask the agent</a>.

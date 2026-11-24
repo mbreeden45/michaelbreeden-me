@@ -1,6 +1,6 @@
 export const SITE_URL = 'https://www.michaelbreeden.me'
 export const SITE_NAME = 'Michael Breeden'
-export const EMAIL = 'michaelcbreeden@gmail.com'
+export const EMAIL = 'michael@michaelbreeden.me'
 export const LINKEDIN = 'https://linkedin.com/in/michaelcbreeden'
 export const GITHUB = 'https://github.com/mbreeden45'
 export const JOB_TITLE = 'Solution Design Architect'
